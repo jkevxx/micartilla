@@ -1,0 +1,134 @@
+:root {
+  --primary-color: #055052;
+  --secondary-color: #53b8bb;
+  --third-color: #003638;
+  --background-color: #f3f2c91a;
+  --advertence-color: #bb2929;
+}
+
+.profile {
+  color: var(--primary-color);
+}
+
+.profile h2 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6rem;
+}
+
+.profile__form {
+  display: grid;
+  /* grid-template-columns: repeat(2, 1fr); */
+  /* grid-template-rows: repeat(); */
+  grid-template-columns: repeat(2, 1fr);
+
+  justify-content: center;
+  justify-items: center;
+  gap: 10rem;
+}
+
+.profile__form .form-label {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.profile__form input {
+  border-radius: 1rem;
+  border: 1px solid var(--third-color);
+  padding: 0 40px 0 15px;
+  height: 4rem;
+  outline: none;
+}
+
+.profile__form .form-group-select {
+  width: 100%;
+}
+
+.profile__form .form-group-select .form__select {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid var(--third-color);
+  outline: none;
+  padding-left: 1rem;
+  height: 4rem;
+}
+
+.form-group-btn-enviar {
+  grid-column: span 2;
+}
+
+.form-group-btn-enviar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__button {
+  display: block;
+  margin-left: auto;
+  padding: 0.75rem 2rem;
+  outline: none;
+  border: none;
+  background-color: var(--third-color);
+  color: #fff;
+  font-size: var(--normal-font-size);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.form__button:hover {
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.15);
+}
+
+.formulario__mensaje {
+  color: var(--advertence-color);
+  font-size: 1.2rem;
+  text-align: center;
+  display: none;
+}
+
+.formulario__mensaje-activo {
+  grid-column: span 2;
+  display: block;
+  /* margin-top: 0.1rem; */
+}
+
+.formulario__mensaje-fecha {
+  color: var(--advertence-color);
+  font-size: 1.2rem;
+  text-align: center;
+  display: none;
+}
+
+.formulario__mensaje-fecha-activo {
+  grid-column: span 2;
+  display: block;
+}
+
+/* 
+*########### MEDIAS ########### 
+*/
+@media (max-width: 480px) {
+  .profile__form {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 868px) {
+  .profile__form {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 4rem;
+  }
+  .form-group-btn-enviar {
+    grid-column: 1;
+  }
+
+  .formulario__mensaje-activo {
+    grid-column: 1;
+  }
+  .formulario__fecha-activo {
+    grid-column: 1;
+  }
+}

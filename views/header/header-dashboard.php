@@ -5,11 +5,8 @@ if (empty($_SESSION['user'])) {
     header("Location: ../index.php");
 }
 
-// if (empty($_SESSION['nombre'])) {
-//     header("Location: ../index.php");
-// }
-
 ?>
+
 
 
 <!DOCTYPE html>
@@ -20,6 +17,7 @@ if (empty($_SESSION['user'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/dashboard-styles.css">
+  <link rel="stylesheet" href="./assets/css/perfil-styles.css">
   <title>Mi Cartilla</title>
 </head>
 
@@ -29,16 +27,36 @@ if (empty($_SESSION['user'])) {
 
     <nav class="navbar">
       <ul class="navbar__menu">
-
+        <?php if ($menu == "dashboard") {?>
         <li class="list active">
-          <a href="#">
+          <a href="./dashboard.php">
             <span class="icon">
               <ion-icon name="home-outline"></ion-icon>
             </span>
             <span class="title">Home</span>
           </a>
         </li>
+        <?php } else {?>
+        <li class="list">
+          <a href="./dashboard.php">
+            <span class="icon">
+              <ion-icon name="home-outline"></ion-icon>
+            </span>
+            <span class="title">Home</span>
+          </a>
+        </li>
+        <?php }?>
 
+        <?php if ($menu == "esquema") {?>
+        <li class="list active">
+          <a href="#">
+            <span class="icon">
+              <ion-icon name="document-text-outline"></ion-icon>
+            </span>
+            <span class="title">Esquema</span>
+          </a>
+        </li>
+        <?php } else {?>
         <li class="list">
           <a href="#">
             <span class="icon">
@@ -47,16 +65,38 @@ if (empty($_SESSION['user'])) {
             <span class="title">Esquema</span>
           </a>
         </li>
+        <?php }?>
 
-        <li class="list">
-          <a href="#">
+        <?php if ($menu == "perfil") {?>
+        <li class="list active">
+          <a href="./perfil.php">
             <span class="icon">
               <ion-icon name="person-outline"></ion-icon>
             </span>
             <span class="title">Profile</span>
           </a>
         </li>
+        <?php } else {?>
+        <li class="list">
+          <a href="./perfil.php">
+            <span class="icon">
+              <ion-icon name="person-outline"></ion-icon>
+            </span>
+            <span class="title">Profile</span>
+          </a>
+        </li>
+        <?php }?>
 
+        <?php if ($menu == "sedes") {?>
+        <li class="list active">
+          <a href="#">
+            <span class="icon">
+              <ion-icon name="location-outline"></ion-icon>
+            </span>
+            <span class="title">Sedes</span>
+          </a>
+        </li>
+        <?php } else {?>
         <li class="list">
           <a href="#">
             <span class="icon">
@@ -65,7 +105,18 @@ if (empty($_SESSION['user'])) {
             <span class="title">Sedes</span>
           </a>
         </li>
+        <?php }?>
 
+        <?php if ($menu == "ajustes") {?>
+        <li class="list active">
+          <a href="#">
+            <span class="icon">
+              <ion-icon name="settings-outline"></ion-icon>
+            </span>
+            <span class="title">Ajustes</span>
+          </a>
+        </li>
+        <?php } else {?>
         <li class="list">
           <a href="#">
             <span class="icon">
@@ -74,8 +125,8 @@ if (empty($_SESSION['user'])) {
             <span class="title">Ajustes</span>
           </a>
         </li>
+        <?php }?>
       </ul>
-
       <!-- </div> -->
     </nav>
 
@@ -121,11 +172,11 @@ if (empty($_SESSION['user'])) {
 
       <div class="dropdown-item">
         <div class="imgBox">
-          <img src="./assets/img/profile.jpg" alt="" onclick="myFunction()">
+          <img src="./assets/img/profile-icon.jpg" alt="" onclick="myFunction()">
         </div>
         <div class="dropdown-content">
           <ul class="links">
-            <li><a href="#">
+            <li><a href="./perfil.php">
                 <ion-icon name="person-circle-outline" aria-hidden="true"></ion-icon> Mi Perfil
               </a></li>
             <li><a href="#">
@@ -147,3 +198,23 @@ if (empty($_SESSION['user'])) {
       </div>
 
     </aside>
+
+    <main class="main">
+      <section class="main__order">
+        <a href="#" class="main__order-options" onclick="option()">
+          <ion-icon name="options"></ion-icon>Ordenar Por
+        </a>
+        <div class="option-content">
+          <ul class="links">
+            <li>
+              <a href="#">Más importante</a>
+            </li>
+            <li>
+              <a href="#">Fecha</a>
+            </li>
+          </ul>
+
+        </div>
+      </section>
+
+      <section class="main__section">
