@@ -13,13 +13,14 @@ $usuarios = $consultar->readUser($username);
 
 <section class="profile">
   <h2>Mis datos</h2>
-  <form id="form-perfil" class="profile__form">
+  <form id="form-perfil" class="profile__form form-perfil">
     <?php foreach ($usuarios as $user) {
     $date = $user['fechaNacimiento'];
     $formatDate = explode('-', $date);
     $newFormatDate = $formatDate[2] . "/" . $formatDate[1] . "/" . $formatDate[0];
     $sexo = $user['sexo'];
     ?>
+    <input type="hidden" name="id" value="<?php echo $user['idUsuario'] ?>">
     <div class="form-group">
       <label for="name" class="form-label">Nombre</label>
       <input type="text" name="nombre" id="name" value="<?php echo $user['nombre'] ?>">
@@ -57,10 +58,15 @@ $usuarios = $consultar->readUser($username);
     <div class="form-group form-group-btn-enviar">
       <button class="form__button " type="submit">Actualizar Información</button>
     </div>
-
+    <div class="formulario__mensaje-exito" id="formulario__mensaje-exito">
+      <p>
+        Tu información fue actualizada
+      </p>
+    </div>
   </form>
 
 </section>
+<script src="./assets/js/perfil-view.js"></script>
 
 <?php
 

@@ -18,7 +18,6 @@
 <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 
 <script src="./assets/js/sidebar-menu-dashboard.js"></script>
-<script src="./assets/js/perfil-view.js"></script>
 
 </body>
 

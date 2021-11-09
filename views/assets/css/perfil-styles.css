@@ -24,7 +24,7 @@
 
   justify-content: center;
   justify-items: center;
-  gap: 10rem;
+  gap: 8rem;
 }
 
 .profile__form .form-label {
@@ -107,6 +107,17 @@
   display: block;
 }
 
+.formulario__mensaje-exito {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  display: none;
+}
+
+.formulario__mensaje-exito-activo {
+  grid-column: span 2;
+  display: block;
+}
+
 /* 
 *########### MEDIAS ########### 
 */
@@ -129,6 +140,10 @@
     grid-column: 1;
   }
   .formulario__fecha-activo {
+    grid-column: 1;
+  }
+
+  .formulario__mensaje-exito-activo {
     grid-column: 1;
   }
 }

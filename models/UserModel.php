@@ -63,17 +63,25 @@ class UserModel extends Conexion
         return $id;
     }
 
-    public function readUser($username)
+    // public function readUser($username)
+    // {
+    //     $sql = "SELECT nombre, apellidos, sexo, fechaNacimiento FROM usuarios INNER JOIN login ON idLogin = id_login WHERE username = $username";
+    //     $stmt = $this->conexion->prepare($sql);
+    //     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //     return $result;
+    // }
+
+    public function updateUser($id, $nombre, $apellidos, $sexo, $fechaNacimiento)
     {
-        $sql = "SELECT nombre, apellidos, sexo, fechaNacimiento FROM usuarios INNER JOIN login ON idLogin = id_login WHERE username = $username";
+        $sql = "UPDATE usuarios SET nombre='$nombre', apellidos='$apellidos', sexo='$sexo', fechaNacimiento='$fechaNacimiento' WHERE idUsuario='$id' ";
         $stmt = $this->conexion->prepare($sql);
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
-    }
-
-    public function updateUser($nombre, $apellidos, $sexo, $fechaNacimiento)
-    {
-
+        $stmt->execute();
+        if ($stmt) {
+            return true;
+        } else {
+            print_r($stmt->errorInfo());
+            return false;
+        }
     }
 
 }
