@@ -436,6 +436,14 @@ body {
   gap: 4rem;
 }
 
+.section__card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+  justify-content: center;
+  justify-items: center;
+  gap: 4rem;
+}
+
 .card {
   background: #fff;
   border-radius: 1rem;

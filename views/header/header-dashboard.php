@@ -19,6 +19,10 @@ if (empty($_SESSION['user'])) {
   <link rel="stylesheet" href="./assets/css/dashboard-styles.css">
   <link rel="stylesheet" href="./assets/css/perfil-styles.css">
   <link rel="stylesheet" href="./assets/css/vacuna-styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="./assets/js/dashboard-view.js"></script>
+
   <title>Mi Cartilla</title>
 </head>
 
@@ -218,4 +222,4 @@ if (empty($_SESSION['user'])) {
         </div>
       </section>
 
-      <section class="main__section">
+      <section class="main__section" >
