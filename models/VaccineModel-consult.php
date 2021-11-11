@@ -1,14 +1,9 @@
 <?php
-//Se hizo este archivo porque la dirección del arvhivo UserModel no funcionaba
+
 require_once "../config/Conexion.php";
 
-class UserModel extends Conexion
+class VaccineModel extends Conexion
 {
-    private $nombre;
-    private $apellidos;
-    private $sexo;
-    private $fechaNacimiento;
-    private $id;
     private $conexion;
     public function __construct()
     {
@@ -27,12 +22,26 @@ class UserModel extends Conexion
         return $this->conexion;
     }
 
-    public function readUser($username)
+    public function readVaccine()
     {
-        $sql = "SELECT idUsuario, nombre, apellidos, sexo, fechaNacimiento FROM usuarios INNER JOIN login ON idLogin = id_login WHERE username = '$username'";
+        $sql = "SELECT idVacuna, Nvacuna, sintomas, numDosis FROM vacunas";
         $stmt = $this->conexion->prepare($sql);
         $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = $stmt->fetchALL(PDO::FETCH_ASSOC);
+        if ($result) {
+            return $result;
+        } else {
+            print_r($stmt->errorInfo());
+            return false;
+        }
+    }
+
+    public function readOneVaccine($id)
+    {
+        $sql = "SELECT Nvacuna, sintomas, numDosis FROM vacunas WHERE idVacuna = $id";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchALL(PDO::FETCH_ASSOC);
         if ($result) {
             return $result;
         } else {

@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100&display=swap");
+
+:root {
+  --primary-color: #055052;
+  --secondary-color: #53b8bb;
+  --third-color: #003638;
+  --border-color: #bbbbbb;
+}
+
+.vaccine {
+  display: grid;
+  justify-content: center;
+}
+
+.vaccine__card-title {
+  margin-bottom: 3rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.vaccine__card {
+  background: #fff;
+  width: 60rem;
+  /* height: auto; */
+}
+
+.vaccine__card-form {
+  width: 100%;
+  /* height: 70%; */
+  align-self: center;
+  padding: 2rem;
+  border-radius: 1rem;
+
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.vaccine__card-content {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.list__button-click {
+  display: flex;
+  justify-content: space-between;
+  /* margin-bottom: 5rem; */
+}
+
+.list__button-click label {
+  margin-left: auto;
+}
+
+.vaccine__date {
+  border: none;
+  outline: none;
+  border-radius: 0.8rem;
+  border: 1px solid var(--border-color);
+  padding: 0 2rem 0 1.5rem;
+  height: 2.5rem;
+  width: 18rem;
+}
+
+.arrow .list__arrow {
+  transform: rotate(90deg);
+}
+
+.list__button-click .list__arrow {
+  cursor: pointer;
+  transition: transform 0.3s;
+  width: 2rem;
+  color: var(--primary-color);
+  margin-left: 1rem;
+}
+
+.vaccine__card-dropdown {
+  display: flex;
+  justify-content: space-around;
+  transition: height 0.4s;
+  margin-top: 0.5rem;
+  height: 0;
+}
+
+.vaccine__card-dropdown .vaccine__card-button {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  height: 4rem;
+  width: 25%;
+  margin-top: 2rem;
+}
+
+.vaccine__card-dropdown .vaccine__card-button ion-icon {
+  position: relative;
+  top: 0.15rem;
+  margin-right: 0.5rem;
+}
+
+.vaccine__button {
+  display: flex;
+  justify-content: center;
+}
+
+.vaccine__card-button {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  height: 4rem;
+  width: 30%;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.vaccine__card-button ion-icon {
+  position: relative;
+  top: 0.2rem;
+  margin-right: 0.2rem;
+}
+
+/* ------------------------- */
+/* POPUP */
+/* ------------------------- */
+
+.overlay {
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  visibility: hidden;
+}
+
+.overlay.active {
+  visibility: visible;
+}
+
+.popup {
+  background: #f8f8f8;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  font-family: "Poppins", sans-serif;
+  padding: 3rem;
+  text-align: center;
+  width: 60rem;
+  transition: 0.3s ease all;
+  transform: scale(0.7);
+  opacity: 0;
+}
+
+.popup .btn-cerrar-popup {
+  font-size: 20px;
+  line-height: 20px;
+  display: block;
+  text-align: right;
+  transition: 0.3s ease all;
+  color: var(--border-color);
+}
+
+.popup .btn-cerrar-popup:hover {
+  color: var(--primary-color);
+}
+
+.popup h4 {
+  font-size: 26px;
+  font-weight: 300;
+  margin-bottom: 40px;
+  opacity: 0;
+}
+
+.popup form .contenedor-inputs {
+  opacity: 0;
+}
+
+.popup form .contenedor-inputs input {
+  width: 90%;
+  margin-bottom: 20px;
+  height: 38px;
+  font-size: 18px;
+  line-height: 38px;
+  text-align: center;
+  outline: none;
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+}
+
+.popup form .btn-submit {
+  padding: 0 20px;
+  height: 40px;
+  line-height: 40px;
+  border: none;
+  color: #fff;
+  background: var(--primary-color);
+  border-radius: 3px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease all;
+}
+
+.popup form .btn-submit:hover {
+  /* background: rgba(94, 125, 227, 0.9); */
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.2);
+}
+
+.popup form .btn-submit ion-icon {
+  position: relative;
+  margin-right: 0.5rem;
+  top: 0.15rem;
+}
+
+/* ------------------------- */
+/* ANIMACIONES */
+/* ------------------------- */
+.popup.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.popup.active h4 {
+  animation: entradaSubtitulo 0.8s ease 0.5s forwards;
+}
+.popup.active .contenedor-inputs {
+  animation: entradaInputs 1s linear 1s forwards;
+}
+
+@keyframes entradaSubtitulo {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes entradaInputs {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 
+*########### MEDIAS PHONE ########### 
+*/
+
+@media (max-width: 480px) {
+  .vaccine__card {
+    display: grid;
+    /* grid-template-columns: minmax(200px, auto); */
+    justify-content: center;
+  }
+
+  .vaccine__card {
+    background: #fff;
+    width: 60rem;
+    /* height: auto; */
+  }
+
+  .vaccine__card-content {
+    font-size: 1.4rem;
+  }
+  .list__button-click p {
+    /* margin-left: -1rem; */
+    margin-right: 1.5rem;
+  }
+
+  .vaccine__date {
+    width: 14rem;
+  }
+
+  .vaccine__card-dropdown .vaccine__card-button {
+    /* font-size: 1.4rem; */
+    width: 40%;
+  }
+}

@@ -18,6 +18,7 @@ if (empty($_SESSION['user'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/dashboard-styles.css">
   <link rel="stylesheet" href="./assets/css/perfil-styles.css">
+  <link rel="stylesheet" href="./assets/css/vacuna-styles.css">
   <title>Mi Cartilla</title>
 </head>
 

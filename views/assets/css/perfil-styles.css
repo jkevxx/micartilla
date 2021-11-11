@@ -4,6 +4,7 @@
   --third-color: #003638;
   --background-color: #f3f2c91a;
   --advertence-color: #bb2929;
+  --border-color: #bbbbbb;
 }
 
 .profile {
@@ -36,7 +37,8 @@
 
 .profile__form input {
   border-radius: 1rem;
-  border: 1px solid var(--third-color);
+  border: 1px solid var(--border-color);
+
   padding: 0 40px 0 15px;
   height: 4rem;
   outline: none;
@@ -49,7 +51,7 @@
 .profile__form .form-group-select .form__select {
   width: 100%;
   border-radius: 1rem;
-  border: 1px solid var(--third-color);
+  border: 1px solid var(--border-color);
   outline: none;
   padding-left: 1rem;
   height: 4rem;
@@ -144,6 +146,9 @@
   }
 
   .formulario__mensaje-exito-activo {
+    grid-column: 1;
+  }
+  .formulario__mensaje-fecha-activo {
     grid-column: 1;
   }
 }

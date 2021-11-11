@@ -386,17 +386,6 @@ body {
   top: 3rem;
 }
 
-.main__order .option-content::before {
-  /* content: "";
-  position: absolute;
-  top: 0;
-  left: 46%;
-  background: #fff;
-  width: 1.2rem;
-  height: 1.2rem;
-  transform: translateX(-50%) rotate(45deg); */
-}
-
 .main__order .option-content .links li {
   list-style: none;
   line-height: 30px;
@@ -454,6 +443,7 @@ body {
   padding-bottom: 2.5rem;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .card .card-title {

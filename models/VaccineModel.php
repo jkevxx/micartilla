@@ -2,13 +2,9 @@
 
 require_once "../../config/Conexion.php";
 
-class UserLogin extends Conexion
+class VaccineModel extends Conexion
 {
-    private $username;
-    private $email;
-    private $password;
     private $conexion;
-
     public function __construct()
     {
         parent::__construct();
@@ -26,18 +22,13 @@ class UserLogin extends Conexion
         return $this->conexion;
     }
 
-    public function createLogin($username, $email, $password)
+    public function createRegisterVaccine($fecha, $id_vacuna, $id_usuario)
     {
-        $this->username = $username;
-        $this->email = $email;
-        $this->password = $password;
-        $sql = "INSERT INTO login (username,email,password) VALUES (?,?,?)";
-        $create = $this->conexion->prepare($sql);
-        $data = array($this->username, $this->email, $this->password);
-        $stmt = $create->execute($data);
-        $idLogin = $this->conexion->lastInsertId();
+        $sql = "INSERT INTO registros (fecha, id_vacuna, id_usuario) VALUES (?,?,?)";
+        $query = $this->conexion->prepare($sql);
+        $data = array($fecha, $id_vacuna, $id_usuario);
+        $stmt = $query->execute($data);
 
-        // $stmt->execute();
         if ($stmt) {
             // return $idLogin;
             return true;

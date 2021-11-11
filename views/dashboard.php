@@ -2,6 +2,11 @@
 $menu = "dashboard";
 
 include './header/header-dashboard.php';
+require_once '../models/VaccineModel-consult.php';
+
+$consultVaccine = new VaccineModel();
+
+$vaccines = $consultVaccine->readVaccine();
 
 ?>
 
@@ -25,82 +30,20 @@ include './header/header-dashboard.php';
   </section>
 
   <section class="main__section"> -->
+<?php foreach ($vaccines as $vaccine) {?>
 <div class="card">
   <div class="card__body ">
-    <h2 class="card-title">Nombre Vacuna 1</h2>
-    <p class="card-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere atque nesciunt
-      illo
-      at libero quibusdam eaque debitis. Quis aspernatur, voluptatum ipsam consectetur molestiae neque libero
-      quod
-      eos eum reiciendis repellendus.
+    <h3 class="card-title"><?php echo $vaccine['Nvacuna'] ?></h3>
+    <p class="card-content">
+      <?php echo $vaccine['sintomas'] ?>
     </p>
   </div>
-  <a href="#" class="card-button">
+  <a href="./vacuna.php?id=<?php echo $vaccine['idVacuna'] ?>" class="card-button">
     <ion-icon name="add-circle"></ion-icon>Añadir
   </a>
 </div>
-<div class="card">
-  <div class="card__body ">
-    <h2 class="card-title">Nombre Vacuna 1</h2>
-    <p class="card-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere atque nesciunt
-      illo
-      at libero quibusdam eaque debitis. Quis aspernatur, voluptatum ipsam consectetur molestiae neque libero
-      quod
-      eos eum reiciendis repellendus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus odit
-      odio cum nemo, provident alias exercitationem! Expedita cupiditate quod, culpa totam tempore enim, non,
-      vero a labore necessitatibus maiores deserunt.
-    </p>
-  </div>
-  <a href="#" class="card-button">
-    <ion-icon name="add-circle"></ion-icon>Añadir
-  </a>
-</div>
-<div class="card">
-  <div class="card__body ">
-    <h2 class="card-title">Nombre Vacuna 1</h2>
-    <p class="card-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere atque nesciunt
-      illo
-      at libero quibusdam eaque debitis. Quis aspernatur, voluptatum ipsam consectetur molestiae neque libero
-      quod
-      eos eum reiciendis repellendus.
-    </p>
-  </div>
-  <a href="#" class="card-button">
-    <ion-icon name="add-circle"></ion-icon>Añadir
-  </a>
-</div>
-<div class="card">
-  <div class="card__body ">
-    <h2 class="card-title">Nombre Vacuna 1</h2>
-    <p class="card-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere atque nesciunt
-      illo
-      at libero quibusdam eaque debitis. Quis aspernatur, voluptatum ipsam consectetur molestiae neque libero
-      quod
-      eos eum reiciendis repellendus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus odit
-      odio cum nemo, provident alias exercitationem! Expedita cupiditate quod, culpa totam tempore enim, non,
-      vero a labore necessitatibus maiores deserunt.
-    </p>
-  </div>
-  <a href="#" class="card-button">
-    <ion-icon name="add-circle"></ion-icon>Añadir
-  </a>
-</div>
-<div class="card">
-  <div class="card__body ">
-    <h2 class="card-title">Nombre Vacuna 1</h2>
-    <p class="card-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere atque nesciunt
-      illo
-      at libero quibusdam eaque debitis. Quis aspernatur, voluptatum ipsam consectetur molestiae neque libero
-      quod
-      eos eum reiciendis repellendus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus odit
-      odio cum nemo, provident alias exercitationem! Expedita cupiditate quod, culpa totam tempore enim, non,
-      vero a labore necessitatibus maiores deserunt.
-    </p>
-  </div>
-  <a href="#" class="card-button">
-    <ion-icon name="add-circle"></ion-icon>Añadir
-  </a>
-</div>
+<?php }?>
+
 
 <!-- </section> -->
 
