@@ -98,7 +98,7 @@
   margin-right: 0.5rem;
 }
 
-.vaccine__button {
+.vaccine .vaccine__button {
   display: flex;
   justify-content: center;
 }
@@ -108,7 +108,7 @@
   color: #fff;
   border: none;
   height: 4rem;
-  width: 30%;
+  /* width: 30%; */
   cursor: pointer;
   padding: 1rem 2rem;
   border-radius: 1rem;

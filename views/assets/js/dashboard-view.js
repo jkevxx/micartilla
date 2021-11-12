@@ -16,7 +16,7 @@ $(function () {
   })
 
   function readVaccine(search) {
-    let path = '../controllers/dashboard/dashboard-consult.php';
+    let path = '../controllers/vaccine/VaccineController-consult.php';
     $.ajax({
       url: path,
       type: 'POST',

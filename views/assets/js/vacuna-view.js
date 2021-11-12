@@ -1,26 +1,4 @@
-let listElements = document.querySelectorAll('.list__button-click');
-
-listElements.forEach(listElement => {
-  listElement.addEventListener('click', () => {
-    listElement.classList.toggle('arrow');
-    let height = 0;
-    let menu = listElement.nextElementSibling;
-    // console.log(menu);
-    console.log(menu.scrollHeight);
-
-    if (menu.clientHeight == "0") {
-      // height += 20;
-      height = menu.scrollHeight;
-
-    }
-    // height += 20;
-    menu.style.height = `${height}px`;
-  })
-});
-
-
 // Efecto POPUP
-
 let btnAbrirPopup = document.getElementById('btn-abrir-popup'),
   overlay = document.getElementById('overlay'),
   popup = document.getElementById('popup'),
@@ -38,29 +16,79 @@ btnCerrarPopup.addEventListener('click', function (e) {
 });
 
 // CREATE REGISTER
-const formulario = document.getElementById('form-vaccine');
 
-formulario.addEventListener('submit', (e) => {
-  e.preventDefault();// Evita que se envie el form
+$(function () {
+  // console.log("works");
+  const idV = $('#idV').val();
+  const idU = $('#idU').val();
+  readRegister(idV, idU)
 
-  const http = new XMLHttpRequest();
-  const formData = new FormData(formulario);
-  const url = '../controllers/vaccine/VaccineController-create.php';
-  http.open('POST', url, true);
-  // http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");// Codifica los datos que son enviados al servidor desde el navegador
+  $('#form-vaccine').submit(function (e) {
+    e.preventDefault();
+    const postData = {
+      fecha: $('#fecha').val(),
+      id_vacuna: $('#id_vacuna').val(),
+      id_usuario: $('#id_usuario').val()
+    };
 
-  http.addEventListener('load', e => {
-    if (e.target.readyState == 4 && e.target.status == 200) {
-      if (e.target.response == 'ok') {
-        // document.location.href = './vacuna.php';
-        // console.log(form);
-      } else {
-        console.log(e.target.response);
-        // respuesta.innerHTML = e.target.response;
-      }
-    }
+
+    // console.log(postData);
+
+    // DATA SENT
+    const url = '../controllers/register/RegisterController-create.php';
+    $.post(url, postData, function (response) {
+      console.log(response);
+
+      $('#form-vaccine').trigger('reset');
+      readRegister(idV, idU);
+
+    });
+
+
   });
 
-  http.send(formData);// Envio del formulario
+  function readRegister(idV, idU) {
+    let path = '../controllers/register/RegisterController-consult.php';
+    $.ajax({
+      url: path,
+      type: 'POST',
+      data: { idV, idU },
+      success: function (response) {
+        let registers = JSON.parse(response);
+        // console.log(registers);
+        let template = '';
+        registers.forEach(register => {
+          template += `
+          <div class="vaccine__card">
+          <form action="#" class="vaccine__card-form">
+            <div class="vaccine__card-content">
+              <div class="list__button-click">
+                <p>1° Dosis</p>
+                <label for="fecha">Fecha de Dosis:
+                  <input type="date" name="fecha" class="vaccine__date" placeholder="dd/mm/yyyy" value="${register.fecha}">
+                </label>
+                <img src="./assets/img/chevron-forward.svg" alt="" class="list__arrow">
+              </div>
+              <div class="vaccine__card-dropdown">
+                <button type="" class="vaccine__card-button">
+                  <ion-icon name="bookmark"></ion-icon>Guardar
+                </button>
+                <button type="" class="vaccine__card-button">
+                  <ion-icon name="trash"></ion-icon>Eliminar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+            `
+        });
+
+        $('#section__registerVaccine').html(template);
+
+      }
+    })
+
+  }
 
 });
+

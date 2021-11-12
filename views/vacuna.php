@@ -17,35 +17,40 @@ $usuarios = $consultar->readUser($username);
 
 ?>
 
-
+<input type="hidden" name="id_vacuna" id="idV" value="<?php echo $id ?>">
+<?php foreach ($usuarios as $user) {?>
+<input type="hidden" name="id_usuario" id="idU" value="<?php echo $user['idUsuario'] ?>">
+<?php }?>
 
 <section class="vaccine">
   <?php foreach ($consult as $vaccine) {?>
   <h2 class="vaccine__card-title"><?php echo $vaccine['Nvacuna'] ?></h2>
   <?php }?>
 
-  <div class="vaccine__card">
-    <form action="#" class="vaccine__card-form">
-      <div class="vaccine__card-content">
-        <div class="list__button-click">
-          <p>1° Dosis</p>
-          <label for="fecha">Fecha de Dosis:
-            <input type="text" name="fecha" class="vaccine__date" placeholder="dd/mm/yyyy">
-          </label>
-          <img src="./assets/img/chevron-forward.svg" alt="" class="list__arrow">
+  <div id="section__registerVaccine" class="section__registerVaccine">
+    <!-- <div class="vaccine__card">
+      <form action="#" class="vaccine__card-form">
+        <div class="vaccine__card-content">
+          <div class="list__button-click">
+            <p>1° Dosis</p>
+            <label for="fecha">Fecha de Dosis:
+              <input type="text" name="fecha" class="vaccine__date" placeholder="dd/mm/yyyy">
+            </label>
+            <img src="./assets/img/chevron-forward.svg" alt="" class="list__arrow">
+          </div>
+          <div class="vaccine__card-dropdown">
+            CHECK IF THE BUTTON GONNA BE OF TYPE SUBMIT
+            <button type="" class="vaccine__card-button">
+              <ion-icon name="bookmark"></ion-icon>Guardar
+            </button>
+            <button type="" class="vaccine__card-button">
+              <ion-icon name="trash"></ion-icon>Eliminar
+            </button>
+          </div>
         </div>
-        <div class="vaccine__card-dropdown">
-          <!-- CHECK IF THE BUTTON GONNA BE OF TYPE SUBMIT -->
-          <button type="submit" class="vaccine__card-button">
-            <ion-icon name="bookmark"></ion-icon>Guardar
-          </button>
-          <button type="submit" class="vaccine__card-button">
-            <ion-icon name="trash"></ion-icon>Eliminar
-          </button>
-        </div>
-      </div>
+      </form>
+    </div> -->
 
-    </form>
   </div>
 
   <div class="vaccine__button" id="btn-abrir-popup">
@@ -63,10 +68,10 @@ $usuarios = $consultar->readUser($username);
       <h4>Selecciona la fecha de tu dosis</h4>
       <form id="form-vaccine">
         <div class="contenedor-inputs">
-          <input type="date" name="fecha" placeholder="" required>
-          <input type="hidden" name="id_vacuna" value="<?php echo $id ?>">
+          <input type="date" name="fecha" id="fecha" placeholder="" required>
+          <input type="hidden" name="id_vacuna" id="id_vacuna" value="<?php echo $id ?>">
           <?php foreach ($usuarios as $user) {?>
-          <input type="hidden" name="id_usuario" value="<?php echo $user['idUsuario'] ?>">
+          <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $user['idUsuario'] ?>">
           <?php }?>
         </div>
         <button type="submit" class="btn-submit">
@@ -79,6 +84,7 @@ $usuarios = $consultar->readUser($username);
 </section>
 
 <script src="./assets/js/vacuna-view.js"></script>
+<script src="./assets/js/register-dropdown.js"></script>
 
 
 <?php

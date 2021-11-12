@@ -22,20 +22,44 @@ class VaccineModel extends Conexion
         return $this->conexion;
     }
 
-    public function createRegisterVaccine($fecha, $id_vacuna, $id_usuario)
+    public function consultVaccine($search)
     {
-        $sql = "INSERT INTO registros (fecha, id_vacuna, id_usuario) VALUES (?,?,?)";
-        $query = $this->conexion->prepare($sql);
-        $data = array($fecha, $id_vacuna, $id_usuario);
-        $stmt = $query->execute($data);
-
-        if ($stmt) {
-            // return $idLogin;
-            return true;
-        } else {
-            print_r($stmt->errorInfo());
-            return false;
+        $sql = "SELECT * FROM vacunas WHERE Nvacuna LIKE '$search%' ";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute();
+        // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $json = array();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $json[] = array(
+                'idVacuna' => $row['idVacuna'],
+                'Nvacuna' => $row['Nvacuna'],
+                'sintomas' => $row['sintomas'],
+                'numDosis' => $row['numDosis'],
+            );
         }
+        $jsonstring = json_encode($json);
+
+        return $jsonstring;
+    }
+
+    public function readVaccine()
+    {
+        $sql = "SELECT * FROM vacunas ";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute();
+        // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $json = array();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $json[] = array(
+                'idVacuna' => $row['idVacuna'],
+                'Nvacuna' => $row['Nvacuna'],
+                'sintomas' => $row['sintomas'],
+                'numDosis' => $row['numDosis'],
+            );
+        }
+        $jsonstring = json_encode($json);
+
+        return $jsonstring;
     }
 
 }

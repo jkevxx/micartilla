@@ -1,7 +1,7 @@
 <?php
-require_once '../../models/DashboardModel.php';
+require_once '../../models/VaccineModel.php';
 
-$consultVaccine = new DashboardModel();
+$consultVaccine = new VaccineModel();
 
 $search = $_POST['search'];
 
