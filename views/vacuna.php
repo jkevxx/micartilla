@@ -33,19 +33,17 @@ $usuarios = $consultar->readUser($username);
         <div class="vaccine__card-content">
           <div class="list__button-click">
             <p>1° Dosis</p>
-            <label for="fecha">Fecha de Dosis:
-              <input type="text" name="fecha" class="vaccine__date" placeholder="dd/mm/yyyy">
+            <label for="fecha" class="section__input">Fecha de Dosis:
+              <input type="date" name="fecha" class="vaccine__date" placeholder="dd/mm/yyyy">
             </label>
-            <img src="./assets/img/chevron-forward.svg" alt="" class="list__arrow">
-          </div>
-          <div class="vaccine__card-dropdown">
-            CHECK IF THE BUTTON GONNA BE OF TYPE SUBMIT
-            <button type="" class="vaccine__card-button">
-              <ion-icon name="bookmark"></ion-icon>Guardar
-            </button>
-            <button type="" class="vaccine__card-button">
-              <ion-icon name="trash"></ion-icon>Eliminar
-            </button>
+            <div class="vaccine__card-options">
+              <button type="" class="vaccine__card-button">
+                <ion-icon name="bookmark"></ion-icon>
+              </button>
+              <button type="" class="vaccine__card-button">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+            </div>
           </div>
         </div>
       </form>
@@ -53,7 +51,7 @@ $usuarios = $consultar->readUser($username);
 
   </div>
 
-  <div class="vaccine__button" id="btn-abrir-popup">
+  <div id="btn-abrir-popup" class="vaccine__button">
     <button class="vaccine__card-button">
       <ion-icon name="duplicate"></ion-icon> Agregar Dosis
     </button>
@@ -68,7 +66,8 @@ $usuarios = $consultar->readUser($username);
       <h4>Selecciona la fecha de tu dosis</h4>
       <form id="form-vaccine">
         <div class="contenedor-inputs">
-          <input type="date" name="fecha" id="fecha" placeholder="" required>
+          <input type="hidden" id="idRegister">
+          <input type="date" name="fecha" id="fechaActual" placeholder="" required>
           <input type="hidden" name="id_vacuna" id="id_vacuna" value="<?php echo $id ?>">
           <?php foreach ($usuarios as $user) {?>
           <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $user['idUsuario'] ?>">
@@ -84,7 +83,7 @@ $usuarios = $consultar->readUser($username);
 </section>
 
 <script src="./assets/js/vacuna-view.js"></script>
-<script src="./assets/js/register-dropdown.js"></script>
+<!-- <script src="./assets/js/register-dropdown.js"></script> -->
 
 
 <?php

@@ -4,40 +4,50 @@ let btnAbrirPopup = document.getElementById('btn-abrir-popup'),
   popup = document.getElementById('popup'),
   btnCerrarPopup = document.getElementById('btn-cerrar-popup');
 
+let inputDate = document.getElementById('fechaActual');
+
 btnAbrirPopup.addEventListener('click', function () {
   overlay.classList.add('active');
   popup.classList.add('active');
+  inputDate.value = '';
+
 });
 
 btnCerrarPopup.addEventListener('click', function (e) {
   e.preventDefault();
   overlay.classList.remove('active');
   popup.classList.remove('active');
+  inputDate.value = '';
 });
+
 
 // CREATE REGISTER
 
 $(function () {
   // console.log("works");
+  let edit = false;
   const idV = $('#idV').val();
   const idU = $('#idU').val();
-  readRegister(idV, idU)
+  readRegister(idV, idU);
 
   $('#form-vaccine').submit(function (e) {
     e.preventDefault();
     const postData = {
-      fecha: $('#fecha').val(),
+      fecha: $('#fechaActual').val(),
       id_vacuna: $('#id_vacuna').val(),
-      id_usuario: $('#id_usuario').val()
+      id_usuario: $('#id_usuario').val(),
+      idRegister: $('#idRegister').val()
     };
 
+    // PATH TO SENT INFO
+    let urlCreate = '../controllers/register/RegisterController-create.php';
+    let urlEdit = '../controllers/register/RegisterController-update.php';
 
-    // console.log(postData);
+    let url = edit === false ? urlCreate : urlEdit;
 
     // DATA SENT
-    const url = '../controllers/register/RegisterController-create.php';
     $.post(url, postData, function (response) {
-      console.log(response);
+      // console.log(response);
 
       $('#form-vaccine').trigger('reset');
       readRegister(idV, idU);
@@ -45,7 +55,7 @@ $(function () {
     });
 
 
-  });
+  });// Button Submit
 
   function readRegister(idV, idU) {
     let path = '../controllers/register/RegisterController-consult.php';
@@ -57,28 +67,28 @@ $(function () {
         let registers = JSON.parse(response);
         // console.log(registers);
         let template = '';
+        let cont = 1;
         registers.forEach(register => {
           template += `
           <div class="vaccine__card">
-          <form action="#" class="vaccine__card-form">
+          <div class="vaccine__card-form">
             <div class="vaccine__card-content">
-              <div class="list__button-click">
-                <p>1° Dosis</p>
-                <label for="fecha">Fecha de Dosis:
-                  <input type="date" name="fecha" class="vaccine__date" placeholder="dd/mm/yyyy" value="${register.fecha}">
+              <div class="list__button-click" idRegistro="${register.idRegistro}" >
+                <p>${cont++}° Dosis</p>
+                <label for="fecha" class="section__input">Fecha de Dosis:
+                  <input type="date" id="fechaNueva" name="fecha" class="vaccine__date" placeholder="dd/mm/yyyy" value="${register.fecha}">
                 </label>
-                <img src="./assets/img/chevron-forward.svg" alt="" class="list__arrow">
-              </div>
-              <div class="vaccine__card-dropdown">
-                <button type="" class="vaccine__card-button">
-                  <ion-icon name="bookmark"></ion-icon>Guardar
-                </button>
-                <button type="" class="vaccine__card-button">
-                  <ion-icon name="trash"></ion-icon>Eliminar
-                </button>
+                <div class="vaccine__card-options">
+                  <button id="btn-abrir-popup" class="vaccine__card-button btn-update">
+                    <ion-icon name="bookmark"></ion-icon>
+                  </button>
+                  <button class="vaccine__card-button btn-delete">
+                    <ion-icon name="trash"></ion-icon>
+                  </button>
+                </div>
               </div>
             </div>
-          </form>
+          </div>
         </div>
             `
         });
@@ -88,7 +98,53 @@ $(function () {
       }
     })
 
-  }
+  }// readRegister
+
+  // Add classes
+  $(document).on('click', '#btn-abrir-popup', function () {
+    // console.log("update");
+    $("#overlay").addClass('active');
+    $("#popup").addClass('active');
+  });
+
+  $(document).on('click', '#btn-cerrar-popup', function () {
+    // console.log("update");
+    $("#overlay").removeClass('active');
+    $("#popup").removeClass('active');
+  });
+
+
+  //Button Delete and Update
+  $(document).on('click', '.btn-delete', function () {
+    if (confirm('Estas seguro de eliminar el registro')) {
+      let element = $(this)[0].parentElement.parentElement;
+      let id = $(element).attr('idRegistro');
+      // console.log(id);
+      let path = '../controllers/register/RegisterController-delete.php';
+      $.post(path, { id }, function (response) {
+        // console.log(response);
+        readRegister(idV, idU);
+      })// response of post
+    }
+  });// btn-delete
+
+  $(document).on('click', '.btn-update', function () {
+    let element = $(this)[0].parentElement.parentElement;
+    let id = $(element).attr('idRegistro');
+
+    let path = '../controllers/register/RegisterController-single.php';
+
+    $.post(path, { id }, function (response) {
+      const register = JSON.parse(response);
+      // console.log(register[0].fecha);
+      $('#fechaActual').val(register[0].fecha);
+      $('#idRegister').val(register[0].idRegistro);
+      edit = true;
+      // readRegister(idV, idU);
+    });
+
+  });// btn-update
 
 });
+
 

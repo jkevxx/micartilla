@@ -22,6 +22,7 @@
   background: #fff;
   width: 60rem;
   /* height: auto; */
+  margin-bottom: 2.5rem;
 }
 
 .vaccine__card-form {
@@ -30,9 +31,8 @@
   align-self: center;
   padding: 2rem;
   border-radius: 1rem;
-
   box-shadow: 0 10px 36px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .vaccine__card-content {
@@ -55,32 +55,18 @@
   outline: none;
   border-radius: 0.8rem;
   border: 1px solid var(--border-color);
-  padding: 0 2rem 0 1.5rem;
+  padding: 0 1.5rem 0 1.8rem;
   height: 2.5rem;
-  width: 18rem;
+  width: 16rem;
 }
 
-.arrow .list__arrow {
-  transform: rotate(90deg);
-}
-
-.list__button-click .list__arrow {
-  cursor: pointer;
-  transition: transform 0.3s;
-  width: 2rem;
-  color: var(--primary-color);
-  margin-left: 1rem;
-}
-
-.vaccine__card-dropdown {
+.vaccine__card-options {
   display: flex;
   justify-content: space-around;
-  transition: height 0.4s;
-  margin-top: 0.5rem;
-  height: 0;
+  margin-left: auto;
 }
 
-.vaccine__card-dropdown .vaccine__card-button {
+.vaccine__card-options .vaccine__card-button {
   background: var(--primary-color);
   color: #fff;
   border: none;
@@ -88,22 +74,23 @@
   padding: 1rem 2rem;
   border-radius: 1rem;
   height: 4rem;
-  width: 25%;
-  margin-top: 2rem;
+  width: 30%;
+  /* margin-top: 2rem; */
 }
 
-.vaccine__card-dropdown .vaccine__card-button ion-icon {
+.vaccine__card-options .vaccine__card-button ion-icon {
   position: relative;
-  top: 0.15rem;
-  margin-right: 0.5rem;
+  right: 0.5rem;
+  pointer-events: none;
 }
 
 .vaccine .vaccine__button {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
+  margin: 0 auto;
 }
 
-.vaccine__card-button {
+.vaccine__button .vaccine__card-button {
   background: var(--primary-color);
   color: #fff;
   border: none;
@@ -112,7 +99,7 @@
   cursor: pointer;
   padding: 1rem 2rem;
   border-radius: 1rem;
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
   text-align: center;
 }
 
@@ -265,8 +252,8 @@
   }
 
   .vaccine__card {
-    background: #fff;
-    width: 60rem;
+    /* background: #fff; */
+    width: 90vw;
     /* height: auto; */
   }
 
@@ -278,12 +265,23 @@
     margin-right: 1.5rem;
   }
 
+  .section__input {
+    display: flex;
+    flex-direction: column;
+  }
+
   .vaccine__date {
     width: 14rem;
   }
 
-  .vaccine__card-dropdown .vaccine__card-button {
-    /* font-size: 1.4rem; */
-    width: 40%;
+  .vaccine__card-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .vaccine__card-options .vaccine__card-button {
+    height: 40%;
   }
 }

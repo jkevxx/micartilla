@@ -222,4 +222,4 @@ if (empty($_SESSION['user'])) {
         </div>
       </section>
 
-      <section class="main__section" >
+      <section class="main__section">

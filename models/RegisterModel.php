@@ -56,4 +56,51 @@ class RegisterModel extends Conexion
         return $jsonstring;
     }
 
+    public function deleteRegister($idRegistro)
+    {
+        $sql = "DELETE FROM registros WHERE idRegistro = '$idRegistro'";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute();
+        if ($stmt) {
+            // return $idLogin;
+            return true;
+        } else {
+            print_r($stmt->errorInfo());
+            return false;
+        }
+    }
+
+    public function consultOnlyRegister($id)
+    {
+        $sql = "SELECT fecha, idRegistro FROM registros WHERE idRegistro = '$id';";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute();
+
+        $json = array();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $json[] = array(
+                'fecha' => $row['fecha'],
+                'idRegistro' => $row['idRegistro'],
+            );
+        }
+        $jsonstring = json_encode($json);
+
+        return $jsonstring;
+    }
+
+    public function updateRegister($idRegistro, $newFecha)
+    {
+        $sql = "UPDATE registros SET fecha=? WHERE idRegistro=? ";
+        $query = $this->conexion->prepare($sql);
+        $fecha = array($newFecha, $idRegistro);
+        $stmt = $query->execute($fecha);
+        if ($stmt) {
+            // return $idLogin;
+            return true;
+        } else {
+            print_r($stmt->errorInfo());
+            return false;
+        }
+    }
+
 }
