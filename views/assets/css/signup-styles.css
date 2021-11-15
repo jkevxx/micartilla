@@ -304,6 +304,10 @@ a {
 }
 
 @media (max-width: 868px) {
+  .form__presentation {
+    width: 360px;
+  }
+
   .form__title_1 {
     display: none;
   }

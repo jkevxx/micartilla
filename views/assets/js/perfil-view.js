@@ -1,8 +1,8 @@
 // VALIDACIÓN DE FORMULARIO
 const formulario = document.getElementById('form-perfil');
 const inputs = document.querySelectorAll('#form-perfil input');
-
-
+const btnSent = document.getElementById("form-group-btn-enviar");
+const inputSelect = document.getElementById("sexo");
 
 const expresiones = {
   nombre: /^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/, // Letras, numeros, guion y guion_bajo
@@ -13,37 +13,40 @@ const expresiones = {
 const campos = {
   nombre: false,
   apellido: false,
-  fecha: false
+  fecha: false,
+  sexo: false
 }
 
-// function validarInput() {
-//   let nombre = document.getElementById('name').value;
-//   let apellido = document.getElementById('apellido').value;
-//   let sexo = document.getElementById('sexo').value;
-//   let fecha = document.getElementById('fecha').value;
-
-//   if (nombre.length == 0 && apellido.length == 0 && fecha.length == 0) {
-//     campos[nombre] = false;
-//     campos[apellido] = false;
-//     campos[fecha] = false;
-//   } else {
-//     campos[nombre] = true;
-//     campos[apellido] = true;
-//     campos[fecha] = true;
-//   }
-// }
 
 const validarFormulario = (e) => {
   switch (e.target.name) {// Trae el name de los inputs
     case "nombre":
       validarCampo(expresiones.nombre, e.target, 'nombre');
       // console.log(e.target); accede al input y con .value accede al valor del input
+      // console.log(e.target.value);
+      if (e.target.value == "") {
+        // console.log("Im inside");
+        btnSent.disabled = false;
+      } else {
+        // console.log("I'm not inside");
+        btnSent.disabled = true;
+      }
       break;
     case "apellido":
       validarCampo(expresiones.nombre, e.target, 'apellido');
+      if (e.target.value == "") {
+        btnSent.disabled = false;
+      } else {
+        btnSent.disabled = true;
+      }
       break;
     case "fecha":
       validarCampoFecha(expresiones.fecha, e.target, 'fecha');
+      if (e.target.value == "") {
+        btnSent.disabled = false;
+      } else {
+        btnSent.disabled = true;
+      }
       break;
 
     default:
@@ -70,9 +73,11 @@ const validarCampoFecha = (expresion, input, campo) => {
   if (expresion.test(input.value) && validacionCumple(input.value)) {// 
     document.getElementById('formulario__mensaje-fecha').classList.remove('formulario__mensaje-fecha-activo');
     campos[campo] = true;
+
   } else {
     document.getElementById('formulario__mensaje-fecha').classList.add('formulario__mensaje-fecha-activo');
     campos[campo] = false;
+
   }
 }
 
@@ -111,36 +116,39 @@ inputs.forEach((input) => {
 formulario.addEventListener('submit', (e) => {
   e.preventDefault();// Evita que se envie el form
   // const terminos = document.getElementById('checkbox');
-  // validarInput();
   const http = new XMLHttpRequest();
   const formData = new FormData(formulario);
   const url = '../controllers/users/UserController-update.php';
   http.open('POST', url, true);
   // http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");// Codifica los datos que son enviados al servidor desde el navegador
+  if (inputSelect.value != "" && campos.nombre && campos.apellido && campos.fecha) {
+    // console.log(inputSelect.value);
+    campos.sexo = true;
+  }
 
-  http.addEventListener('load', e => {
-    if (e.target.readyState == 4 && e.target.status == 200) {
-      if (e.target.response == 'ok') {
-        // document.location.href = './perfil.php';
-        // console.log(form);
-      } else {
-        console.log(e.target.response);
-        // respuesta.innerHTML = e.target.response;
+  // console.log(campos.sexo);
+  if (campos.nombre || campos.apellido || campos.fecha || campos.sexo) {
+    http.addEventListener('load', e => {
+      if (e.target.readyState == 4 && e.target.status == 200) {
+        if (e.target.response == 'ok') {
+          // document.location.href = './perfil.php';
+          // console.log(form);
+        } else {
+          console.log(e.target.response);
+          // respuesta.innerHTML = e.target.response;
+        }
       }
-    }
-  });
+    });
 
-  http.send(formData);// Envio del formulario
+    http.send(formData);// Envio del formulario
 
-  document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
-  setTimeout(() => {
-    document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-  }, 2000);
-
-  // if (campos.nombre || campos.apellido) {
-  // }
-  // else {
-  //   // document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
-  //   console.log("problemas");
-  // }
+    document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
+    setTimeout(() => {
+      document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
+    }, 2000);
+  }
+  else {
+    // document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+    console.log("problemas");
+  }
 });

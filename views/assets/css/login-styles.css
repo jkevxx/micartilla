@@ -230,19 +230,16 @@ h1 {
 *########### MEDIAS PHONE ########### 
 */
 @media (max-width: 480px) {
-  /* .l-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80vw;
-  } */
-
   .form__title_1 {
     display: none;
   }
 }
 
 @media (max-width: 868px) {
+  .form__presentation {
+    width: 360px;
+  }
+
   .form__title_1 {
     display: none;
   }

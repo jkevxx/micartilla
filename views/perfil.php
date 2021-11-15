@@ -55,7 +55,7 @@ $usuarios = $consultar->readUser($username);
       <p> Verifica que la fecha se la correcta
       </p>
     </div>
-    <div class="form-group form-group-btn-enviar">
+    <div id="form-group-btn-enviar" class="form-group form-group-btn-enviar">
       <button class="form__button " type="submit">Actualizar Información</button>
     </div>
     <div class="formulario__mensaje-exito" id="formulario__mensaje-exito">

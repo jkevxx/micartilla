@@ -19,13 +19,13 @@
         <h1 class="form__title">Iniciar Sesión</h1>
 
         <div class="form__div" id="grupo__user">
-          <input type="text" class="form__input" name="user" id="user" placeholder=" ">
+          <input id="user" type="text" class="form__input" name="user" placeholder=" ">
           <label for="" class="form__label">Email o Username</label>
           <p class="formulario__input-error">Introduce tu correo o username</p>
         </div>
 
         <div class="form__div" id="grupo__password">
-          <input type="password" class="form__input" name="password" id="password" placeholder=" ">
+          <input id="password" type="password" class="form__input" name="password" placeholder=" ">
           <label for="" class="form__label">Contraseña</label>
           <span class="eye" onclick="mypassword()">
             <ion-icon id="hide1" name="eye-outline"></ion-icon>

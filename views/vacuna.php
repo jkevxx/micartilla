@@ -63,7 +63,7 @@ $usuarios = $consultar->readUser($username);
         <ion-icon name="close"></ion-icon>
       </a>
       <!-- <h3>SUSCRIBETE</h3> -->
-      <h4>Selecciona la fecha de tu dosis</h4>
+      <h4 id="title-vaccine"></h4>
       <form id="form-vaccine">
         <div class="contenedor-inputs">
           <input type="hidden" id="idRegister">
@@ -74,8 +74,16 @@ $usuarios = $consultar->readUser($username);
           <?php }?>
         </div>
         <button type="submit" class="btn-submit">
-          <ion-icon name="add-circle"></ion-icon>Añadir
+          <span id="btn__option">
+            <ion-icon class="btn__option-update" name="reload-circle"></ion-icon>
+            <ion-icon class="btn__option-add" name="add-circle"></ion-icon><span id="btn__option-text"></span>
+          </span>
         </button>
+        <div class="formulario__mensaje-exito" id="formulario__mensaje-exito">
+          <p>
+            Fecha Actualizada
+          </p>
+        </div>
       </form>
     </div>
   </div>

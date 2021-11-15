@@ -5,8 +5,15 @@ let btnAbrirPopup = document.getElementById('btn-abrir-popup'),
   btnCerrarPopup = document.getElementById('btn-cerrar-popup');
 
 let inputDate = document.getElementById('fechaActual');
+let titleVaccine = document.getElementById('title-vaccine');
+let btnText = document.getElementById('btn__option-text');
+// let inputFecha = document.getElementById('fechaNueva');
+
+// inputFecha.disabled = true;
 
 btnAbrirPopup.addEventListener('click', function () {
+  titleVaccine.innerHTML = "Selecciona la fecha de tu dosis";
+  btnText.innerHTML = "Añadir";
   overlay.classList.add('active');
   popup.classList.add('active');
   inputDate.value = '';
@@ -45,6 +52,11 @@ $(function () {
 
     let url = edit === false ? urlCreate : urlEdit;
 
+    if (url) {
+      $('#formulario__mensaje-exito').addClass('formulario__mensaje-exito-activo'); setTimeout(() => {
+        $('#formulario__mensaje-exito').removeClass('formulario__mensaje-exito-activo');
+      }, 2000);
+    }
     // DATA SENT
     $.post(url, postData, function (response) {
       // console.log(response);
@@ -76,7 +88,7 @@ $(function () {
               <div class="list__button-click" idRegistro="${register.idRegistro}" >
                 <p>${cont++}° Dosis</p>
                 <label for="fecha" class="section__input">Fecha de Dosis:
-                  <input type="date" id="fechaNueva" name="fecha" class="vaccine__date" placeholder="dd/mm/yyyy" value="${register.fecha}">
+                  <input type="date" id="fechaNueva" name="fecha" class="vaccine__date" placeholder="dd/mm/yyyy" value="${register.fecha}" disabled>
                 </label>
                 <div class="vaccine__card-options">
                   <button id="btn-abrir-popup" class="vaccine__card-button btn-update">
@@ -105,6 +117,8 @@ $(function () {
     // console.log("update");
     $("#overlay").addClass('active');
     $("#popup").addClass('active');
+    $(".btn__option-add").addClass('active');
+    $(".btn__option-update").removeClass('active');
   });
 
   $(document).on('click', '#btn-cerrar-popup', function () {
@@ -129,6 +143,11 @@ $(function () {
   });// btn-delete
 
   $(document).on('click', '.btn-update', function () {
+    $("#title-vaccine").text('Selecciona la nueva fecha');
+    $("#btn__option-text").text('Actualizar');
+    $(".btn__option-add").removeClass('active');
+    $(".btn__option-update").addClass('active');
+
     let element = $(this)[0].parentElement.parentElement;
     let id = $(element).attr('idRegistro');
 
@@ -141,6 +160,8 @@ $(function () {
       $('#idRegister').val(register[0].idRegistro);
       edit = true;
       // readRegister(idV, idU);
+
+
     });
 
   });// btn-update

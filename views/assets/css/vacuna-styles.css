@@ -47,7 +47,7 @@
 }
 
 .list__button-click label {
-  margin-left: auto;
+  margin-left: 10rem;
 }
 
 .vaccine__date {
@@ -55,9 +55,9 @@
   outline: none;
   border-radius: 0.8rem;
   border: 1px solid var(--border-color);
-  padding: 0 1.5rem 0 1.8rem;
-  height: 2.5rem;
-  width: 16rem;
+  padding: 0 0.8rem 0 1rem;
+  height: 3rem;
+  width: 12rem;
 }
 
 .vaccine__card-options {
@@ -201,7 +201,36 @@
 .popup form .btn-submit ion-icon {
   position: relative;
   margin-right: 0.5rem;
-  top: 0.15rem;
+  top: 0.2rem;
+}
+
+.popup form .btn-submit span .btn__option-update {
+  display: none;
+}
+
+.popup form .btn-submit span .btn__option-add {
+  display: none;
+}
+
+.popup form .btn-submit span .btn__option-update.active {
+  display: inline-block;
+}
+
+.popup form .btn-submit span .btn__option-add.active {
+  display: inline-block;
+}
+
+.formulario__mensaje-exito {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-top: 1rem;
+
+  display: none;
+}
+
+.formulario__mensaje-exito-activo {
+  /* grid-column: span 2; */
+  display: block;
 }
 
 /* ------------------------- */

@@ -4,7 +4,7 @@ const inputs = document.querySelectorAll('#form input');
 let respuesta = document.querySelector('.respuesta');
 
 const expresiones = {
-  usuario: /^\s$/,///^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+  usuario: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]?\.[a-zA-Z0-9-.]?$/,
   // correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
   password: /^\s$/ // 4 a 12 digitos.
 }
