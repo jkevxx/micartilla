@@ -65,7 +65,7 @@ formulario.addEventListener('submit', (e) => {
     http.addEventListener('load', e => {
       if (e.target.readyState == 4 && e.target.status == 200) {
         if (e.target.response == 'ok') {
-          document.location.href = './dashboard.php';
+          document.location.href = './users.php';
         } else {
           console.log("no entró");
           respuesta.innerHTML = e.target.response;

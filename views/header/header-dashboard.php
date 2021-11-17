@@ -1,9 +1,12 @@
 <?php
 session_start();
 // Valida si existe la sesión de usuario
-if (empty($_SESSION['user'])) {
+if (empty($_SESSION['idUsuario'])) {
     header("Location: ../index.php");
+
 }
+
+// echo $_SESSION['idUsuario'];
 
 ?>
 
@@ -21,7 +24,6 @@ if (empty($_SESSION['user'])) {
   <link rel="stylesheet" href="./assets/css/vacuna-styles.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="./assets/js/dashboard-view.js"></script>
 
   <title>Mi Cartilla</title>
 </head>
@@ -54,7 +56,7 @@ if (empty($_SESSION['user'])) {
 
         <?php if ($menu == "esquema") {?>
         <li class="list active">
-          <a href="#">
+          <a href="./esquema.php">
             <span class="icon">
               <ion-icon name="document-text-outline"></ion-icon>
             </span>
@@ -63,7 +65,7 @@ if (empty($_SESSION['user'])) {
         </li>
         <?php } else {?>
         <li class="list">
-          <a href="#">
+          <a href="./esquema.php">
             <span class="icon">
               <ion-icon name="document-text-outline"></ion-icon>
             </span>
@@ -184,7 +186,7 @@ if (empty($_SESSION['user'])) {
             <li><a href="./perfil.php">
                 <ion-icon name="person-circle-outline" aria-hidden="true"></ion-icon> Mi Perfil
               </a></li>
-            <li><a href="#">
+            <li><a href="./users.php">
                 <ion-icon name="sync-circle" aria-hidden="true"></ion-icon> Cambiar cuenta
               </a></li>
             <div class="divider"></div>

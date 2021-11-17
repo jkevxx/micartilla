@@ -8,6 +8,7 @@ include './header/header-dashboard.php';
 
 ?>
 
+
 <!-- MAIN -->
 <!-- <main class="main">
   <section class="main__order">
@@ -34,6 +35,7 @@ include './header/header-dashboard.php';
 </section>
 
 
+<script src="./assets/js/dashboard-view.js"></script>
 
 
 <!-- </section> -->

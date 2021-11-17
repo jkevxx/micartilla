@@ -1,0 +1,134 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100&display=swap");
+
+/*===== VARIABLES CSS =====*/
+:root {
+  /*===== Colores =====*/
+  --first-color: #1a73e8;
+  --input-color: #80868b;
+  --border-color: #dadce0;
+
+  --main-color: #003638;
+  --secondary-color: #055052;
+  --third-color: #53b8bb;
+  --advertence-color: #bb2929;
+  --background-color: #f3f2c91a;
+
+  /*===== Fuente y tipografia =====*/
+  --body-font: "Poppins", sans-serif;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.75rem;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--body-font);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  /* min-height: 100vh; */
+  background: var(--background-color);
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background: #fff;
+  box-shadow: 0 10px 25px #5c636933;
+
+  width: 39rem;
+  padding: 4rem 2rem;
+  border-radius: 1rem;
+}
+
+.card h2 {
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--main-color);
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-users {
+  /* display: inline-block; */
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  width: 22rem;
+  height: 6rem;
+}
+
+.card-users a {
+  outline: none;
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+.card-users a ion-icon {
+  position: relative;
+  top: 3px;
+  font-size: 2rem;
+}
+
+.btn-delete {
+  background: var(--main-color);
+  color: #fff;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 1rem;
+  height: 4rem;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-delete ion-icon {
+  position: relative;
+  /* top: 1px; */
+  margin-right: 0.4rem;
+}
+
+a {
+  outline: none;
+  color: #fff;
+  text-decoration: none;
+  /* width: 100%; */
+}
+
+.btn-add-user {
+  background: var(--main-color);
+  color: #fff;
+  margin-top: 2rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4.5rem;
+  width: 100%;
+}
+
+.btn-add-user ion-icon {
+  position: relative;
+  margin-right: 0.4rem;
+}

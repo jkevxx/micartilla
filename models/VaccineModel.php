@@ -62,4 +62,51 @@ class VaccineModel extends Conexion
         return $jsonstring;
     }
 
+    public function searchVaccineUser($search, $idUsuario)
+    {
+        $sql = "SELECT idVacuna, Nvacuna, sintomas FROM vacunas
+        INNER JOIN registros ON idVacuna = id_vacuna
+        INNER JOIN usuarios ON idUsuario = id_usuario
+        WHERE id_usuario = '$idUsuario' AND Nvacuna LIKE '$search%'
+        GROUP BY idVacuna;";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute();
+        // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $json = array();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $json[] = array(
+                'idVacuna' => $row['idVacuna'],
+                'Nvacuna' => $row['Nvacuna'],
+                'sintomas' => $row['sintomas'],
+            );
+        }
+        $jsonstring = json_encode($json);
+
+        return $jsonstring;
+
+    }
+
+    public function consultVaccineUser($idUsuario)
+    {
+        $sql = "SELECT idVacuna, Nvacuna, sintomas FROM vacunas
+        INNER JOIN registros ON idVacuna = id_vacuna
+        INNER JOIN usuarios ON idUsuario = id_usuario
+        WHERE id_usuario = '$idUsuario'
+        GROUP BY idVacuna;";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute();
+        // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $json = array();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $json[] = array(
+                'idVacuna' => $row['idVacuna'],
+                'Nvacuna' => $row['Nvacuna'],
+                'sintomas' => $row['sintomas'],
+            );
+        }
+        $jsonstring = json_encode($json);
+
+        return $jsonstring;
+    }
+
 }

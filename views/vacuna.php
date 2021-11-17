@@ -6,14 +6,14 @@ include './header/header-dashboard.php';
 require_once '../models/VaccineModel-consult.php';
 require_once '../models/UserModel-consult.php';
 
-$username = $_SESSION['user'];
+$idUsuario = $_SESSION['idUsuario'];
 $id = $_GET["id"];
 
 $consultVaccine = new VaccineModel();
 $consult = $consultVaccine->readOneVaccine($id);
 
 $consultar = new UserModel();
-$usuarios = $consultar->readUser($username);
+$usuarios = $consultar->readUser($idUsuario);
 
 ?>
 
@@ -80,13 +80,29 @@ $usuarios = $consultar->readUser($username);
           </span>
         </button>
         <div class="formulario__mensaje-exito" id="formulario__mensaje-exito">
-          <p>
-            Fecha Actualizada
+          <p id="message-date">
+            <!-- Fecha Actualizada -->
           </p>
         </div>
       </form>
     </div>
   </div>
+
+  <!-- <div class="confirm">
+    <div class="confirm__window">
+      <div class="confirm__titlebar">
+        <span class="confirm__title">Eliminación de Registro</span>
+        <button class="confirm__close">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      </div>
+      <div class="confirm__content">¿Esta seguro que quiere eliminar el registro?</div>
+      <div class="confirm__buttons">
+        <button class="confirm__button confirm__button--ok confirm__button--fill">Eliminar</button>
+        <button class="confirm__button confirm__button--cancel">Cancelar</button>
+      </div>
+    </div>
+  </div> -->
 
 </section>
 

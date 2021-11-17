@@ -4,6 +4,8 @@ session_start();
 if (empty($_SESSION['user'])) {
     header("Location: ../index.php");
 }
+
+// echo $_SESSION['user'];
 ?>
 
 <!DOCTYPE html>
@@ -54,6 +56,7 @@ if (empty($_SESSION['user'])) {
     <div class="form-outer">
       <form id="form">
         <div class="page slide-page">
+          <input type="hidden" id="username" name="username" value="<?php echo $_SESSION['user']; ?> ">
           <div class="title">Información Básica:</div>
           <div class="field">
             <div class="label">Nombre</div>

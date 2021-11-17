@@ -27,9 +27,23 @@ class UserModel extends Conexion
         return $this->conexion;
     }
 
-    public function readUser($username)
+    public function readUser($idUsuario)
     {
-        $sql = "SELECT idUsuario, nombre, apellidos, sexo, fechaNacimiento FROM usuarios INNER JOIN login ON idLogin = id_login WHERE username = '$username'";
+        $sql = "SELECT idUsuario, nombre, apellidos, sexo, fechaNacimiento FROM usuarios WHERE idUsuario = '$idUsuario'";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if ($result) {
+            return $result;
+        } else {
+            print_r($stmt->errorInfo());
+            return false;
+        }
+    }
+
+    public function readAllUsers($username)
+    {
+        $sql = "SELECT idUsuario, nombre, apellidos FROM usuarios INNER JOIN login ON idLogin = id_login WHERE username = '$username';";
         $stmt = $this->conexion->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -42,7 +42,7 @@ class UserModel extends Conexion
 
         if ($stmt) {
             // return $idLogin;
-            return true;
+            return $idLogin;
         } else {
             print_r($stmt->errorInfo());
             return false;
@@ -50,26 +50,27 @@ class UserModel extends Conexion
 
     }
 
-    public function getIdLogin()
+    // public function getIdLogin()
+    // {
+    //     $sql = "SELECT MAX(idLogin) as idLogin FROM login LIMIT 1";
+    //     // $query = $this->conexion->prepare($sql);
+    //     // $query->execute();
+    //     $result = $this->conexion->query($sql);
+    //     $row = $result->fetch(PDO::FETCH_ASSOC);
+    //     // $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    //     // $result = arrayId[0]->idLogin;
+    //     $id = $row['idLogin'];
+    //     return $id;
+    // }
+
+    public function getIdLogin($username)
     {
-        $sql = "SELECT MAX(idLogin) as idLogin FROM login LIMIT 1";
-        // $query = $this->conexion->prepare($sql);
-        // $query->execute();
+        $sql = "SELECT idLogin FROM login WHERE username = '$username'";
         $result = $this->conexion->query($sql);
         $row = $result->fetch(PDO::FETCH_ASSOC);
-        // $result = $query->fetchAll(PDO::FETCH_ASSOC);
-        // $result = arrayId[0]->idLogin;
         $id = $row['idLogin'];
         return $id;
     }
-
-    // public function readUser($username)
-    // {
-    //     $sql = "SELECT nombre, apellidos, sexo, fechaNacimiento FROM usuarios INNER JOIN login ON idLogin = id_login WHERE username = $username";
-    //     $stmt = $this->conexion->prepare($sql);
-    //     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    //     return $result;
-    // }
 
     public function updateUser($id, $nombre, $apellidos, $sexo, $fechaNacimiento)
     {
@@ -82,6 +83,21 @@ class UserModel extends Conexion
             print_r($stmt->errorInfo());
             return false;
         }
+    }
+
+    public function requestUser($idUsuario)
+    {
+        $sql = "SELECT idUsuario, nombre, apellidos, sexo, fechaNacimiento FROM usuarios WHERE idUsuario = '$idUsuario'";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if ($result) {
+            return $result;
+        } else {
+            print_r($stmt->errorInfo());
+            return false;
+        }
+
     }
 
 }

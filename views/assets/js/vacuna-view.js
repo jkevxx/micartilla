@@ -57,9 +57,10 @@ $(function () {
         $('#formulario__mensaje-exito').removeClass('formulario__mensaje-exito-activo');
       }, 2000);
     }
-    // DATA SENT
+    // CREATE REGISTER
     $.post(url, postData, function (response) {
       // console.log(response);
+      $("#message-date").text('Fecha Agregada');
 
       $('#form-vaccine').trigger('reset');
       readRegister(idV, idU);
@@ -127,9 +128,23 @@ $(function () {
     $("#popup").removeClass('active');
   });
 
+  // const campo = {
+  //   validacion: false
+  // }
+
+  // function validarConfirmacion() {
+  //   // let valor = false;
+  //   $(document).on('click', '.confirm__button--ok', function () {
+  //     $(".confirm").removeClass('active');
+  //     campo.validacion = true;
+  //   });
+
+  // }
 
   //Button Delete and Update
   $(document).on('click', '.btn-delete', function () {
+    // $(".confirm").addClass('active');
+
     if (confirm('Estas seguro de eliminar el registro')) {
       let element = $(this)[0].parentElement.parentElement;
       let id = $(element).attr('idRegistro');
@@ -142,9 +157,20 @@ $(function () {
     }
   });// btn-delete
 
+  $(document).on('click', '.confirm__close', function () {
+    $(".confirm").removeClass('active');
+  });
+
+  $(document).on('click', '.confirm__button--cancel', function () {
+    $(".confirm").removeClass('active');
+  });
+
+
+
   $(document).on('click', '.btn-update', function () {
     $("#title-vaccine").text('Selecciona la nueva fecha');
     $("#btn__option-text").text('Actualizar');
+    $("#message-date").text('Fecha Actualizada');
     $(".btn__option-add").removeClass('active');
     $(".btn__option-update").addClass('active');
 

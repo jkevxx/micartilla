@@ -4,6 +4,10 @@ const inputs = document.querySelectorAll('#form-perfil input');
 const btnSent = document.getElementById("form-group-btn-enviar");
 const inputSelect = document.getElementById("sexo");
 
+const inputName = document.getElementById("name");
+const inputApp = document.getElementById("apellido");
+const inputFecha = document.getElementById("fecha");
+
 const expresiones = {
   nombre: /^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/, // Letras, numeros, guion y guion_bajo
   // fecha: /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/
@@ -17,6 +21,27 @@ const campos = {
   sexo: false
 }
 
+// console.log(inputName.value);s
+validarInputs();
+
+function validarInputs() {
+  if (inputName.value == "" || inputApp.value == "" || inputFecha.value == "") {
+    campos.nombre = false;
+    campos.apellido = false;
+    campos.fecha = false;
+    campos.sexo = false;
+    btnSent.disabled = false;
+    // console.log("inputApp.value");
+  } else {
+    campos.nombre = true;
+    campos.apellido = true;
+    campos.fecha = true;
+    campos.sexo = true;
+    btnSent.disabled = true;
+  }
+
+}
+
 
 const validarFormulario = (e) => {
   switch (e.target.name) {// Trae el name de los inputs
@@ -24,29 +49,17 @@ const validarFormulario = (e) => {
       validarCampo(expresiones.nombre, e.target, 'nombre');
       // console.log(e.target); accede al input y con .value accede al valor del input
       // console.log(e.target.value);
-      if (e.target.value == "") {
-        // console.log("Im inside");
-        btnSent.disabled = false;
-      } else {
-        // console.log("I'm not inside");
-        btnSent.disabled = true;
-      }
+      validarInputs();
       break;
+
     case "apellido":
       validarCampo(expresiones.nombre, e.target, 'apellido');
-      if (e.target.value == "") {
-        btnSent.disabled = false;
-      } else {
-        btnSent.disabled = true;
-      }
+      validarInputs();
       break;
+
     case "fecha":
       validarCampoFecha(expresiones.fecha, e.target, 'fecha');
-      if (e.target.value == "") {
-        btnSent.disabled = false;
-      } else {
-        btnSent.disabled = true;
-      }
+      validarInputs();
       break;
 
     default:
@@ -121,13 +134,14 @@ formulario.addEventListener('submit', (e) => {
   const url = '../controllers/users/UserController-update.php';
   http.open('POST', url, true);
   // http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");// Codifica los datos que son enviados al servidor desde el navegador
-  if (inputSelect.value != "" && campos.nombre && campos.apellido && campos.fecha) {
-    // console.log(inputSelect.value);
-    campos.sexo = true;
-  }
+  // if (inputSelect.value != "" && campos.nombre && campos.apellido && campos.fecha) {
+  // console.log(inputSelect.value);
+  //   campos.sexo = true;
+  // }
 
   // console.log(campos.sexo);
   if (campos.nombre || campos.apellido || campos.fecha || campos.sexo) {
+    campos.sexo = true;
     http.addEventListener('load', e => {
       if (e.target.readyState == 4 && e.target.status == 200) {
         if (e.target.response == 'ok') {

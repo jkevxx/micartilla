@@ -4,10 +4,10 @@ $menu = "perfil";
 include './header/header-dashboard.php';
 require_once '../models/UserModel-consult.php';
 
-$username = $_SESSION['user'];
+$idUsuario = $_SESSION['idUsuario'];
 
 $consultar = new UserModel();
-$usuarios = $consultar->readUser($username);
+$usuarios = $consultar->readUser($idUsuario);
 
 ?>
 
