@@ -1,0 +1,111 @@
+:root {
+  --primary-color: #055052;
+  --secondary-color: #53b8bb;
+  --third-color: #003638;
+  --background-color: #f3f2c91a;
+}
+
+.schemaOlderAdult {
+  width: 100%;
+  /* height: 20px; */
+}
+
+.schemaOlderAdult__table {
+  background: #fff;
+  min-width: 55vw;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px #5c636933;
+  padding: 1rem;
+}
+
+.schemaOlderAdult__table tbody tr td {
+  padding: 1rem;
+  border-right: 1px dotted black;
+}
+
+.schemaOlderAdult__table-title h2 {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  color: var(--primary-color);
+}
+
+.schemaOlderAdult__table-titleRow {
+  width: 15rem;
+}
+
+.schemaOlderAdult__table-subtitle,
+.schemaOlderAdult__table-titleRow,
+.schemaOlderAdult__table-titleMonth,
+.schemaOlderAdult__table-titleYear,
+.schemaOlderAdult__table-titleAnual {
+  font-size: 1.8rem;
+  text-align: center;
+}
+.schemaOlderAdult__table-titleAnual {
+  width: 1.5rem;
+  transform: rotate(-90deg);
+}
+
+.schemaOlderAdult__table__first {
+  width: 2.5rem;
+}
+
+.schemaOlderAdult__table-vaccine {
+  width: 15rem;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.schemaOlderAdult__table__vaccine-item {
+  border-radius: 1rem;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 auto;
+}
+
+.item-primary {
+  background: var(--primary-color);
+}
+
+.item-secondary {
+  background: var(--secondary-color);
+}
+
+/* 
+*########### MEDIAS PHONE ########### 
+*/
+@media (max-width: 480px) {
+  .schemaOlderAdult__table tbody tr td {
+    padding: 0.5rem;
+  }
+
+  .schemaOlderAdult__table {
+    font-size: 1.2rem;
+    min-width: 90vw;
+  }
+
+  .schemaOlderAdult__table-vaccine {
+    width: 8rem;
+    height: 5rem;
+    margin-bottom: 2.5rem;
+  }
+  .schemaOlderAdult__table-titleRow {
+    width: 8rem;
+  }
+
+  .schemaOlderAdult__table-subtitle,
+  .schemaOlderAdult__table-titleRow,
+  .schemaOlderAdult__table-titleMonth,
+  .schemaOlderAdult__table-titleYear,
+  .schemaOlderAdult__table-titleAnual {
+    font-size: 1rem;
+  }
+
+  .schemaOlderAdult__table__vaccine-item {
+    border-radius: 1rem;
+    width: 1rem;
+    height: 1rem;
+  }
+}

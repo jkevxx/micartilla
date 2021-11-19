@@ -1,6 +1,6 @@
 <?php
 
-$menu = "esquema";
+$menu = "";
 
 include './header/header-dashboard.php';
 require_once '../models/VaccineModel-consult.php';

@@ -1,3 +1,12 @@
+<?php
+session_start();
+// Valida si existe la sesión de usuario
+if (!empty($_SESSION['user'])) {
+    header("Location: ./users.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

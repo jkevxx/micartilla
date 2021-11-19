@@ -394,12 +394,17 @@ body {
 .main__order .option-content .links li:hover {
   list-style: none;
   line-height: 30px;
-  /* background: #ffff1f; */
+  /* background: var(--secondary-color); */
+  /* color: #fff; */
 }
 
 .main__order .option-content .links li a {
   text-decoration: none;
   color: var(--primary-color);
+}
+
+.main__order .option-content .links li a:hover {
+  color: #80868b;
 }
 
 .main__order .option-toggle {

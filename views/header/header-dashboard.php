@@ -22,6 +22,11 @@ if (empty($_SESSION['idUsuario'])) {
   <link rel="stylesheet" href="./assets/css/dashboard-styles.css">
   <link rel="stylesheet" href="./assets/css/perfil-styles.css">
   <link rel="stylesheet" href="./assets/css/vacuna-styles.css">
+  <link rel="stylesheet" href="./assets/css/esquemas-styles/esquemanino.css">
+  <link rel="stylesheet" href="./assets/css/esquemas-styles/esquemajoven.css">
+  <link rel="stylesheet" href="./assets/css/esquemas-styles/esquemaadulto.css">
+  <link rel="stylesheet" href="./assets/css/esquemas-styles/esquemaadultomayor.css">
+  <link rel="stylesheet" href="./assets/css/esquemas-styles/esquemamujerembarazada.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
@@ -209,15 +214,24 @@ if (empty($_SESSION['idUsuario'])) {
     <main class="main">
       <section class="main__order">
         <a href="#" class="main__order-options" onclick="option()">
-          <ion-icon name="options"></ion-icon>Ordenar Por
+          <ion-icon name="information-circle"></ion-icon>Consultar Esquemas
         </a>
         <div class="option-content">
           <ul class="links">
             <li>
-              <a href="#">Más importante</a>
+              <a href="./esquemanino.php">Niños de 0 a 6 años</a>
             </li>
             <li>
-              <a href="#">Fecha</a>
+              <a href="./esquemajoven.php">Adolecentes de 7 a 19 años</a>
+            </li>
+            <li>
+              <a href="./esquemaAdulto.php">Adultos de 20 a 60 años</a>
+            </li>
+            <li>
+              <a href="./esquemaAdultoMayor.php">Adultos mayores de 60 años</a>
+            </li>
+            <li>
+              <a href="./esquemaMujerEmbarazada.php">Mujeres Embarazadas</a>
             </li>
           </ul>
 

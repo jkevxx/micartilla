@@ -38,10 +38,9 @@ $usuarios = $consultar->readAllUsers($username);
             <?php echo $user['nombre'] . " " . $user['apellidos'] ?>
           </a>
         </div>
-        <a href="#" class="btn-delete">
+        <a href="#" onclick="preguntar(<?php echo $user['idUsuario'] ?>)" class="btn-delete">
           <ion-icon name="trash"></ion-icon>Eliminar
         </a>
-
       </div>
       <?php }?>
 
@@ -53,6 +52,7 @@ $usuarios = $consultar->readAllUsers($username);
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="./assets/js/users-view.js"></script>
 </body>
 
 </html>

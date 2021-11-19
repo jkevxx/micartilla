@@ -97,7 +97,19 @@ class UserModel extends Conexion
             print_r($stmt->errorInfo());
             return false;
         }
+    }
 
+    public function deleteUser($idUsuario)
+    {
+        $sql = "DELETE FROM usuarios WHERE idUsuario = '$idUsuario'";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute();
+        if ($stmt) {
+            return true;
+        } else {
+            print_r($stmt->errorInfo());
+            return false;
+        }
     }
 
 }

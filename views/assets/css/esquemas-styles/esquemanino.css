@@ -1,0 +1,98 @@
+:root {
+  --primary-color: #055052;
+  --secondary-color: #53b8bb;
+  --third-color: #003638;
+  --background-color: #f3f2c91a;
+}
+
+.schemaKid {
+  width: 100%;
+  /* height: 20px; */
+}
+
+.schemaKid__table {
+  background: #fff;
+  min-width: 55vw;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px #5c636933;
+  padding: 1rem;
+}
+
+.schemaKid__table tbody tr td {
+  padding: 1rem;
+  border-right: 1px dotted black;
+}
+
+.schemaKid__table-title h2 {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  color: var(--primary-color);
+}
+
+.schemaKid__table-titleRow {
+  width: 15rem;
+}
+
+.schemaKid__table-titleRow,
+.schemaKid__table-titleMonth,
+.schemaKid__table-titleYear {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.schemaKid__table-vaccine {
+  width: 15rem;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.schemaKid__table__vaccine-item {
+  border-radius: 1rem;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 auto;
+}
+
+.item-primary {
+  background: var(--primary-color);
+}
+
+.item-secondary {
+  background: var(--secondary-color);
+}
+
+/* 
+*########### MEDIAS PHONE ########### 
+*/
+@media (max-width: 480px) {
+  .schemaKid__table tbody tr td {
+    padding: 0.5rem;
+  }
+
+  .schemaKid__table {
+    font-size: 1.2rem;
+    min-width: 90vw;
+  }
+
+  .schemaKid__table-vaccine {
+    width: 8rem;
+    height: 5rem;
+  }
+  .schemaKid__table-titleRow {
+    width: 8rem;
+  }
+
+  .schemaKid__table-titleRow,
+  .schemaKid__table-titleMonth,
+  .schemaKid__table-titleYear {
+    font-size: 1rem;
+  }
+
+  .schemaKid__table__vaccine-item {
+    border-radius: 1rem;
+    width: 1rem;
+    height: 1rem;
+  }
+}
