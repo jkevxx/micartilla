@@ -1,0 +1,23 @@
+:root {
+  --primary-color: #055052;
+  --secondary-color: #53b8bb;
+  --third-color: #003638;
+  --background-color: #f3f2c91a;
+}
+
+.sedes__card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.sedes__card-title {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1rem;
+}

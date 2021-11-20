@@ -12,6 +12,7 @@ include './header/header-dashboard.php';
 </form>
 
 
+<h2>Mi Esquema</h2>
 <section class="section__card" id="cards">
 
 </section>

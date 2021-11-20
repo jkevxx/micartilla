@@ -416,7 +416,9 @@ body {
 /* 
 *=========== MAIN ===========
 */
-
+h2 {
+  color: var(--primary-color);
+}
 .main {
   position: absolute;
   width: calc(100% - 20rem);

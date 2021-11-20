@@ -27,6 +27,7 @@ if (empty($_SESSION['idUsuario'])) {
   <link rel="stylesheet" href="./assets/css/esquemas-styles/esquemaadulto.css">
   <link rel="stylesheet" href="./assets/css/esquemas-styles/esquemaadultomayor.css">
   <link rel="stylesheet" href="./assets/css/esquemas-styles/esquemamujerembarazada.css">
+  <link rel="stylesheet" href="./assets/css/sedes-styles.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
@@ -101,7 +102,7 @@ if (empty($_SESSION['idUsuario'])) {
 
         <?php if ($menu == "sedes") {?>
         <li class="list active">
-          <a href="#">
+          <a href="./sedes.php">
             <span class="icon">
               <ion-icon name="location-outline"></ion-icon>
             </span>
@@ -110,7 +111,7 @@ if (empty($_SESSION['idUsuario'])) {
         </li>
         <?php } else {?>
         <li class="list">
-          <a href="#">
+          <a href="./sedes.php">
             <span class="icon">
               <ion-icon name="location-outline"></ion-icon>
             </span>
@@ -198,13 +199,13 @@ if (empty($_SESSION['idUsuario'])) {
             <li><a href="#">
                 <ion-icon name="settings" aria-hidden="true"></ion-icon> Ajustes
               </a></li>
-            <li><a href="#">
+            <!-- <li><a href="#">
                 <ion-icon name="information-circle" aria-hidden="true"></ion-icon> Ayuda
-              </a></li>
-            <div class="divider"></div>
+              </a></li> -->
             <li><a href="../controllers/login/logout.php">
                 <ion-icon name="log-out" aria-hidden="true"></ion-icon> Logout
               </a></li>
+            <!-- <div class="divider"></div> -->
           </ul>
         </div>
       </div>
