@@ -443,6 +443,9 @@ h2 {
   gap: 4rem;
 }
 
+.section__card-h2 {
+  margin: -4rem;
+}
 .section__card {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));

@@ -28,6 +28,7 @@ if (empty($_SESSION['idUsuario'])) {
   <link rel="stylesheet" href="./assets/css/esquemas-styles/esquemaadultomayor.css">
   <link rel="stylesheet" href="./assets/css/esquemas-styles/esquemamujerembarazada.css">
   <link rel="stylesheet" href="./assets/css/sedes-styles.css">
+  <link rel="stylesheet" href="./assets/css/settings-styles.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
@@ -122,7 +123,7 @@ if (empty($_SESSION['idUsuario'])) {
 
         <?php if ($menu == "ajustes") {?>
         <li class="list active">
-          <a href="#">
+          <a href="./ajustes.php">
             <span class="icon">
               <ion-icon name="settings-outline"></ion-icon>
             </span>
@@ -131,7 +132,7 @@ if (empty($_SESSION['idUsuario'])) {
         </li>
         <?php } else {?>
         <li class="list">
-          <a href="#">
+          <a href="./ajustes.php">
             <span class="icon">
               <ion-icon name="settings-outline"></ion-icon>
             </span>

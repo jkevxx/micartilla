@@ -47,4 +47,17 @@ class UserLogin extends Conexion
         }
     }
 
+    public function updatePassword($username, $newPassword)
+    {
+        $sql = "UPDATE login SET password='$newPassword' WHERE username='$username'";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute();
+        if ($stmt) {
+            return true;
+        } else {
+            print_r($stmt->errorInfo());
+            return false;
+        }
+    }
+
 }
