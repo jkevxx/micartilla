@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.report__container {
+  display: flex;
+  justify-content: center;
+}
+
+.table__report-title {
+  text-align: center;
+  color: #055052;
+}
+
+.table__report {
+  /* box-shadow: 0 10px 25px #5c636933; */
+  width: 44rem;
+  padding: 2rem;
+  font-size: 1rem;
+}
+
+.table__report-tableTitle {
+  color: #055052;
+  border-bottom: 1px solid black;
+  padding: 1rem;
+  font-weight: bold;
+}

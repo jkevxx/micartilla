@@ -215,29 +215,79 @@ if (empty($_SESSION['idUsuario'])) {
 
     <main class="main">
       <section class="main__order">
-        <a href="#" class="main__order-options" onclick="option()">
-          <ion-icon name="information-circle"></ion-icon>Consultar Esquemas
-        </a>
-        <div class="option-content">
-          <ul class="links">
-            <li>
-              <a href="./esquemanino.php">Niños de 0 a 6 años</a>
-            </li>
-            <li>
-              <a href="./esquemajoven.php">Adolecentes de 7 a 19 años</a>
-            </li>
-            <li>
-              <a href="./esquemaAdulto.php">Adultos de 20 a 60 años</a>
-            </li>
-            <li>
-              <a href="./esquemaAdultoMayor.php">Adultos mayores de 60 años</a>
-            </li>
-            <li>
-              <a href="./esquemaMujerEmbarazada.php">Mujeres Embarazadas</a>
-            </li>
-          </ul>
-
+        <div class="option">
+          <?php if ($menu == "esquema") {?>
+          <a class="main__order-report" href="./reporte.php">
+            <ion-icon name="download-outline"></ion-icon>Generar Reporte
+          </a>
+          <?php } else {?>
+          <!-- <a class="main__order-report-active" href="./reporte.php">Generar Reporte</a> -->
+          <?php }?>
         </div>
+        <div class="option">
+          <?php if ($menu == "dashboard" || $menu == "esquema") {?>
+
+          <a href="#" class="main__order-options" onclick="option()">
+            <ion-icon name="information-circle"></ion-icon>Consultar Esquemas
+          </a>
+          <div class="option-content">
+            <ul class="links">
+              <li>
+                <a href="./esquemanino.php">Niños de 0 a 6 años</a>
+              </li>
+              <div class="divider"></div>
+
+              <li>
+                <a href="./esquemajoven.php">Adolecentes de 7 a 19 años</a>
+              </li>
+              <div class="divider"></div>
+
+              <li>
+                <a href="./esquemaAdulto.php">Adultos de 20 a 60 años</a>
+              </li>
+              <div class="divider"></div>
+
+              <li>
+                <a href="./esquemaAdultoMayor.php">Adultos mayores de 60 años</a>
+              </li>
+              <div class="divider"></div>
+
+              <li>
+                <a href="./esquemaMujerEmbarazada.php">Mujeres Embarazadas</a>
+              </li>
+            </ul>
+            <?php } else {?>
+            <a href="#" class="main__order-options-disable" onclick="option()">
+              <ion-icon name="information-circle"></ion-icon>Consultar Esquemas
+            </a>
+            <div class="option-content">
+              <ul class="links">
+                <li>
+                  <a href="./esquemanino.php">Niños de 0 a 6 años</a>
+                </li>
+                <div class="divider"></div>
+
+                <li>
+                  <a href="./esquemajoven.php">Adolecentes de 7 a 19 años</a>
+                </li>
+                <div class="divider"></div>
+
+                <li>
+                  <a href="./esquemaAdulto.php">Adultos de 20 a 60 años</a>
+                </li>
+                <li>
+                  <a href="./esquemaAdultoMayor.php">Adultos mayores de 60 años</a>
+                </li>
+                <div class="divider"></div>
+
+                <li>
+                  <a href="./esquemaMujerEmbarazada.php">Mujeres Embarazadas</a>
+                </li>
+              </ul>
+              <?php }?>
+            </div>
+
+          </div>
       </section>
 
       <section class="main__section">

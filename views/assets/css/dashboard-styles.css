@@ -199,6 +199,7 @@ body {
 .sidebar__notification .icon {
   font-size: 2.5rem;
   color: #fff;
+  visibility: hidden;
 }
 
 .sidebar__notification .notification-content {
@@ -344,16 +345,16 @@ body {
 
 .main__order {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-bottom: 2rem;
 }
 
-.main__order-options {
+.main__order a {
   text-decoration: none;
   color: var(--primary-color);
 }
 
-.main__order-options ion-icon {
+.main__order ion-icon {
   font-size: 2.5rem;
   position: relative;
   top: 0.5rem;
@@ -413,6 +414,19 @@ body {
   visibility: visible;
 }
 
+.main__order .option .main__order-options-disable {
+  visibility: hidden;
+}
+
+.main__order .option {
+  display: flex;
+  align-items: center;
+}
+
+.main .option .option-content .divider {
+  margin: 1rem 0;
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+}
 /* 
 *=========== MAIN ===========
 */
@@ -615,6 +629,7 @@ h2 {
   .sidebar__notification .icon {
     font-size: 2rem;
     color: #fff;
+    visibility: hidden;
   }
 
   .sidebar__notification .notification-content {
@@ -772,6 +787,14 @@ h2 {
     justify-items: center;
     gap: 4rem;
   }
+
+  .main__order ion-icon {
+    font-size: 2rem;
+  }
+
+  .main__order a {
+    font-size: 1.2rem;
+  }
 }
 
 /* *########### MEDIAS TABLETS ######### */
@@ -819,6 +842,7 @@ h2 {
   .sidebar__notification .icon {
     font-size: 2rem;
     color: #fff;
+    visibility: hidden;
   }
 
   .sidebar__notification .notification-content .links li a {
