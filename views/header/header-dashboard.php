@@ -151,6 +151,7 @@ if (empty($_SESSION['idUsuario'])) {
         <ion-icon name="menu-outline" class="open"></ion-icon>
         <ion-icon name="close-outline" class="close"></ion-icon>
       </div>
+      <?php if ($menu == "dashboard" || $menu == "esquema" || $menu == "sedes") {?>
 
       <div class="sidebar__search">
         <a href="#" for="search">
@@ -160,11 +161,27 @@ if (empty($_SESSION['idUsuario'])) {
             <ion-icon name="search-outline"></ion-icon>
           </span>
         </label>
-        <form action="" class="sidebar__input">
+        <form action="#" class="sidebar__input">
           <input type="text" name="" id="search" class="search" placeholder="Buscar" required>
           <!-- <input type="submit" class="button" value=""> -->
         </form>
       </div>
+      <?php } else {?>
+      <div class="sidebar__search-disable">
+        <a href="#" for="search">
+        </a>
+        <label for="search">
+          <span class="icon">
+            <ion-icon name="search-outline"></ion-icon>
+          </span>
+        </label>
+        <form action="#" class="sidebar__input">
+          <input type="text" name="" id="search" class="search" placeholder="Buscar" required>
+          <!-- <input type="submit" class="button" value=""> -->
+        </form>
+      </div>
+      <?php }?>
+
 
       <div class="sidebar__notification">
         <a href="#" class="icon" onclick="notification()">
@@ -197,7 +214,7 @@ if (empty($_SESSION['idUsuario'])) {
                 <ion-icon name="sync-circle" aria-hidden="true"></ion-icon> Cambiar cuenta
               </a></li>
             <div class="divider"></div>
-            <li><a href="#">
+            <li><a href="./ajustes.php">
                 <ion-icon name="settings" aria-hidden="true"></ion-icon> Ajustes
               </a></li>
             <!-- <li><a href="#">

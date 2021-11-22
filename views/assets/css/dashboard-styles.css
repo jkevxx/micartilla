@@ -157,6 +157,10 @@ body {
   /* width: 5rem; */
 }
 
+.sidebar__search-disable {
+  visibility: hidden;
+}
+
 .sidebar__search .icon {
   position: absolute;
   display: flex;
