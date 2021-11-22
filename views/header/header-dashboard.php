@@ -234,7 +234,7 @@ if (empty($_SESSION['idUsuario'])) {
       <section class="main__order">
         <div class="option">
           <?php if ($menu == "esquema") {?>
-          <a class="main__order-report" href="./reporte.php">
+          <a class="main__order-report" href="./reporte.php" target="_blank">
             <ion-icon name="download-outline"></ion-icon>Generar Reporte
           </a>
           <?php } else {?>

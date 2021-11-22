@@ -1,10 +1,10 @@
 <?php
 class Conexion
 {
-    private $host = "localhost";
-    private $user = "root";
-    private $password = "";
-    private $db = "mycartilla";
+    private $host = "localhost:3306";
+    private $user = "kevinpzg_adminkd";
+    private $password = "@datab.1000*@";
+    private $db = "kevinpzg_micartilla";
     private $conexion;
 
     public function __construct()

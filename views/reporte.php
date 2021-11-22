@@ -20,7 +20,9 @@ $consult = new VaccineModel();
 
 $nameVaccines = $consultNameV->consultVaccineName($idUsuario);
 $registers = $consult->consultVaccineRegister($idUsuario);
-
+if (empty($nameVaccines) && empty($registers)) {
+    header("Location: ./esquema.php");
+}
 ?>
 
 

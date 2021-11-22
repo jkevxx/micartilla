@@ -30,7 +30,12 @@ $(function () {
             <div class="card">
               <div class="card__body">
                 <h3 class="card-title">${vaccine.Nvacuna}</h3>
-                <p class="card-content">${vaccine.sintomas}</p>
+                <div class="card-content">
+                <p class="card-content-question">
+                  ¿Qué es lo que provoca no vacunarse contra ${vaccine.Nvacuna}?
+                  </p>
+                  ${vaccine.sintomas}
+                </div>
               </div>
               <a href="./vacuna.php?id=${vaccine.idVacuna}" class="card-button">
                 <ion-icon name="add-circle"></ion-icon>Añadir

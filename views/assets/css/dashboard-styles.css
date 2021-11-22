@@ -496,6 +496,13 @@ h2 {
 .card .card-content {
   background: #fff;
   padding: 2.5rem;
+  font-size: 1.4rem;
+}
+
+.card .card-content .card-content-question {
+  /* font-weight: bold; */
+  color: var(--third-color);
+  margin-bottom: 1rem;
 }
 
 .card .card-button {

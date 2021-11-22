@@ -93,7 +93,7 @@ $(function () {
                 </label>
                 <div class="vaccine__card-options">
                   <button id="btn-abrir-popup" class="vaccine__card-button btn-update">
-                    <ion-icon name="bookmark"></ion-icon>
+                    <ion-icon name="reload-circle"></ion-icon>
                   </button>
                   <button class="vaccine__card-button btn-delete">
                     <ion-icon name="trash"></ion-icon>
@@ -145,7 +145,7 @@ $(function () {
   $(document).on('click', '.btn-delete', function () {
     // $(".confirm").addClass('active');
 
-    if (confirm('Estas seguro de eliminar el registro')) {
+    if (confirm('Estas seguro de eliminar la dosis')) {
       let element = $(this)[0].parentElement.parentElement;
       let id = $(element).attr('idRegistro');
       // console.log(id);
