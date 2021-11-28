@@ -17,7 +17,7 @@ if (!empty($_SESSION['user'])) {
   <!--===== CSS =====-->
   <link rel="stylesheet" href="assets/css/login-styles.css">
 
-  <title>Login</title>
+  <title>Iniciar Sesión</title>
 </head>
 
 <body>

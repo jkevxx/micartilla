@@ -17,7 +17,7 @@ if (!empty($_SESSION['user'])) {
   <!--===== CSS =====-->
   <link rel="stylesheet" href="assets/css/signup-styles.css">
 
-  <title>Sign Up</title>
+  <title>Crear Cuenta</title>
 </head>
 
 <body>

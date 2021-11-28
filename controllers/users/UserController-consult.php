@@ -13,7 +13,7 @@ $idUsuario = $_GET['idUsuario'];
 $result = $requestUser->requestUser($idUsuario);
 
 if (is_array($result)) {
-    echo 'ok';
+    // echo 'ok';
     $_SESSION['idUsuario'] = $_GET['idUsuario'];
     header('location: ../../views/dashboard.php');
 
