@@ -15,6 +15,11 @@ $consult = $consultVaccine->readOneVaccine($id);
 $consultar = new UserModel();
 $usuarios = $consultar->readUser($idUsuario);
 
+date_default_timezone_set('America/Mexico_City');
+$fechaActual = date('Y-m-d');
+// echo "<br>";
+// echo $fechaLimite = date("Y-m-d", strtotime($fechaActual . "+ 1 days"));
+
 ?>
 
 <input type="hidden" name="id_vacuna" id="idV" value="<?php echo $id ?>">
@@ -67,7 +72,7 @@ $usuarios = $consultar->readUser($idUsuario);
       <form id="form-vaccine">
         <div class="contenedor-inputs">
           <input type="hidden" id="idRegister">
-          <input type="date" name="fecha" id="fechaActual" placeholder="" required>
+          <input type="date" name="fecha" id="fechaActual" placeholder="" max="<?php echo $fechaActual ?>" required>
           <input type="hidden" name="id_vacuna" id="id_vacuna" value="<?php echo $id ?>">
           <?php foreach ($usuarios as $user) {?>
           <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $user['idUsuario'] ?>">

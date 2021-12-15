@@ -87,7 +87,7 @@ if (empty($_SESSION['idUsuario'])) {
             <span class="icon">
               <ion-icon name="person-outline"></ion-icon>
             </span>
-            <span class="title">Profile</span>
+            <span class="title">Perfil</span>
           </a>
         </li>
         <?php } else {?>
@@ -96,7 +96,7 @@ if (empty($_SESSION['idUsuario'])) {
             <span class="icon">
               <ion-icon name="person-outline"></ion-icon>
             </span>
-            <span class="title">Profile</span>
+            <span class="title">Perfil</span>
           </a>
         </li>
         <?php }?>
