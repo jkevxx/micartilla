@@ -1,0 +1,8 @@
+
+*.jpg
+
+*.png
+
+config/Conexion.php
+
+.vscode/
